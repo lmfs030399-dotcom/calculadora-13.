@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de 13º Salário - Regras Oficiais 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-page: #d7f2d7; 
+            --text-main: #1a2b4c;
+            --text-muted: #5e6e87;
+            --primary-blue: #2c73eb;
+            --light-blue: #e8f1fc;
+            --blue-gradient: linear-gradient(135deg, #4a8df8, #1c5fd1);
+            --card-bg: #ffffff;
+            --input-border: #d2dce6;
+            --input-bg: #f9fbfd;
+            --yellow-accent: #ffe169;
+            --yellow-light: #fff8d6;
+            --red-light: #ffefef;
+            --red-text: #d93f3f;
+            --green-light: #e6f6eb;
+            --green-text: #20874b;
+            --purple-light: #f5edfc;
+            --purple-text: #6b33a8;
+            --border-radius-sm: 12px;
+            --border-radius-md: 20px;
+            --border-radius-lg: 30px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-page); 
+            color: var(--text-main); 
+            display: flex; 
+            justify-content: center; 
+            padding: 40px 20px; 
+            background-image: url('image_443a2e.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+        
+        .header { grid-column: 1 / -1; text-align: center; position: relative; margin-bottom: 20px; }
+        .header h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 4px 15px rgba(0,0,0,0.1); }
+        .header h1 span { color: var(--primary-blue); }
+        .subtitle-badge { background-color: var(--yellow-accent); display: inline-block; padding: 5px 20px; border-radius: 20px; font-weight: 700; font-size: 1.1rem; transform: rotate(-2deg); margin-top: 10px; box-shadow: 0 4px 10px rgba(255, 225, 105, 0.4); border: 2px solid #fff; }
+        .deco { display: none; }
+
+        .main-column { display: flex; flex-direction: column; gap: 20px; }
+        .card { background-color: var(--card-bg); border-radius: var(--border-radius-md); padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .icon-circle { width: 45px; height: 45px; border-radius: 50%; background-color: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .card-header h2 { font-size: 1.2rem; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; }
+        .card-header p { font-size: 0.9rem; color: var(--text-muted); margin-top: 2px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--text-main); font-size: 0.95rem; }
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        .input-icon { position: absolute; left: 15px; width: 30px; height: 30px; background-color: var(--green-light); color: var(--green-text); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 700; }
+        .input-icon.blue { background-color: var(--light-blue); color: var(--primary-blue); }
+        .input-icon.gray { background-color: #f0f0f0; color: #666; }
+        .input-icon.purple { background-color: var(--purple-light); color: var(--purple-text); }
+        
+        input, select { width: 100%; padding: 15px 15px 15px 55px; border: 2px solid var(--input-border); border-radius: var(--border-radius-sm); background-color: var(--input-bg); font-size: 1rem; font-weight: 600; color: var(--text-main); outline: none; transition: all 0.2s; appearance: none; }
+        select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235e6e87' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 15px) center; }
+        input:focus, select:focus { border-color: var(--primary-blue); background-color: #fff; box-shadow: 0 0 0 4px rgba(44, 115, 235, 0.1); }
+
+        .extras-box { background-color: #fcfcfc; border: 2px dashed var(--input-border); border-radius: var(--border-radius-sm); padding: 20px; margin-bottom: 25px; }
+        .extras-title { font-size: 0.95rem; font-weight: 800; color: var(--text-muted); margin-bottom: 15px; text-align: center; }
+        .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .extras-grid .form-group { margin-bottom: 0; }
+        .extras-grid label { font-size: 0.85rem; color: #555; }
+        .extras-grid input { padding: 12px 12px 12px 45px; font-size: 0.95rem; }
+        .extras-grid .input-icon { width: 24px; height: 24px; font-size: 0.8rem; left: 10px; }
+
+        .hint-box { background-color: var(--green-light); border-radius: var(--border-radius-sm); padding: 12px 15px; display: flex; gap: 10px; align-items: center; margin-top: -5px; margin-bottom: 20px; font-size: 0.85rem; color: var(--green-text); font-weight: 600; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .btn-calc { width: 100%; padding: 18px; background: var(--blue-gradient); color: white; border: none; border-radius: var(--border-radius-sm); font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 15px rgba(44, 115, 235, 0.3); transition: transform 0.1s, box-shadow 0.1s; }
+        .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44, 115, 235, 0.4); }
+        .error-msg { color: var(--red-text); font-size: 0.85rem; font-weight: 700; margin-top: 5px; display: none; }
+
+        #result-section { display: none; animation: slideUp 0.4s ease-out forwards; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box { background-color: var(--yellow-light); border: 2px solid var(--yellow-accent); border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .result-box .label { font-weight: 700; color: #856404; }
+        .result-box .value { font-size: 1.8rem; font-weight: 900; color: #28a745; }
+
+        .discount-box { background-color: var(--red-light); border: 1px dashed #f5c2c7; border-radius: var(--border-radius-sm); padding: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .discount-content { display: flex; flex-direction: column; }
+        .discount-box .label { font-weight: 600; color: var(--red-text); display: flex; align-items: center; gap: 8px;}
+        .discount-box .legal-note { font-size: 0.75rem; color: #a85858; font-weight: 700; margin-left: 32px; margin-top: 2px; }
+        .discount-box .value { font-size: 1.2rem; font-weight: 800; color: var(--red-text); }
+        .discount-box .icon { width: 24px; height: 24px; background: white; border-radius: 50%; display: flex; align-items:center; justify-content:center; color: var(--red-text); font-size:0.8rem;}
+
+        .net-box { background-color: var(--light-blue); border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border: 2px solid var(--primary-blue); }
+        .net-box .label { font-weight: 700; color: var(--primary-blue); display: flex; align-items: center; gap: 8px;}
+        .net-box .value { font-size: 1.8rem; font-weight: 900; color: var(--primary-blue); }
+        
+        .installments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .installment { background: #f8f9fa; border: 1px solid #e9ecef; padding: 12px; border-radius: 8px; text-align: center; }
+        .installment span { display: block; font-size: 0.85rem; color: #6c757d; font-weight: 700; margin-bottom: 4px;}
+        .installment strong { font-size: 1.1rem; color: var(--text-main); }
+
+        .info-alert { background-color: var(--purple-light); border-radius: var(--border-radius-sm); padding: 15px; display: flex; gap: 15px; align-items: center; }
+        .info-alert i { color: var(--purple-text); font-size: 1.5rem; margin-top: 5px; }
+        .info-alert p { color: var(--purple-text); font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
+        
+        .footer-note { text-align: center; font-size: 0.85rem; color: #1a2b4c; font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.7); padding: 10px; border-radius: 20px; backdrop-filter: blur(5px); }
+
+        .ad-column { background-color: var(--light-blue); border: 2px dashed #a4c4f9; border-radius: var(--border-radius-lg); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .ad-icon { font-size: 4rem; margin-bottom: 20px; }
+        .ad-column h3 { color: var(--primary-blue); font-size: 1.6rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; }
+        .ad-column p { color: var(--text-muted); font-weight: 600; margin-bottom: 30px; }
+        .btn-ad { background: var(--blue-gradient); color: white; border: none; padding: 12px 25px; border-radius: var(--border-radius-sm); font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
+
+        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
+        @media (max-width: 500px) { .grid-2, .extras-grid { grid-template-columns: 1fr; } .result-box, .net-box { flex-direction: column; text-align: center; gap: 10px; } .installments-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Calculadora de<br><span>13º Salário</span></h1>
+            <div class="subtitle-badge">Simples, rápida e feita pra você!</div>
+        </div>
+
+        <!-- MAIN COLUMN (Calculadora) -->
+        <div class="main-column">
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-circle"><i class="fa-solid fa-calculator"></i></div>
+                    <div>
+                        <h2>Informe seus dados</h2>
+                        <p>Preencha os campos abaixo para estimar seu 13º (Regras Oficiais 2026).</p>
+                    </div>
+                </div>
+
+                <form id="calc-form">
+                    <div class="form-group">
+                        <label>Salário-base / Remuneração fixa (R$)</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon">R$</div>
+                            <input type="text" id="input-salary" class="money-input" placeholder="Ex.: 2.500,00" autocomplete="off">
+                        </div>
+                        <div class="error-msg" id="error-salary">Informe um salário válido.</div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Meses trabalhados no ano</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon blue"><i class="fa-regular fa-calendar"></i></div>
+                                <select id="input-months">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="1">1 mês</option>
+                                    <option value="2">2 meses</option>
+                                    <option value="3">3 meses</option>
+                                    <option value="4">4 meses</option>
+                                    <option value="5">5 meses</option>
+                                    <option value="6">6 meses</option>
+                                    <option value="7">7 meses</option>
+                                    <option value="8">8 meses</option>
+                                    <option value="9">9 meses</option>
+                                    <option value="10">10 meses</option>
+                                    <option value="11">11 meses</option>
+                                    <option value="12">12 meses</option>
+                                </select>
+                            </div>
+                            <div class="error-msg" id="error-months">Selecione os meses.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Número de dependentes</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon gray"><i class="fa-solid fa-users"></i></div>
+                                <input type="number" id="input-dependents" placeholder="Ex.: 0" min="0" max="20" step="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO DE ADICIONAIS -->
+                    <div class="extras-box">
+                        <h3 class="extras-title">Informe a <u>média mensal</u> das parcelas variáveis recebidas durante o ano:</h3>
+                        <div class="extras-grid">
+                            <div class="form-group">
+                                <label>Média de horas extras</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-he" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Média de adicional noturno</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-noturno" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Média de insalubridade</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-insalubridade" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Média de periculosidade</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-periculosidade" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Média de comissões</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-comissoes" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Média de gratificações</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-gratificacoes" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label>Média de outras parcelas habituais</label>
+                                <div class="input-wrapper">
+                                    <div class="input-icon purple">R$</div>
+                                    <input type="text" id="input-outras" class="money-input" placeholder="0,00">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hint-box">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        <span>Considere fração de 15 dias ou mais no mês como 1 mês integral trabalhado.</span>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Calcular meu 13º Salário →</button>
+                </form>
+            </div>
+
+            <!-- RESULTADOS -->
+            <div class="card" id="result-section">
+                <div class="card-header">
+                    <div class="icon-circle" style="background-color: #f7a528;"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div>
+                        <h2>Seu Resultado</h2>
+                        <p>Confira os valores estimados do seu 13º salário.</p>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <span class="label">Base Bruta do 13º (Salário + Médias Variáveis)</span>
+                    <span class="value" id="res-gross">R$ 0,00</span>
+                </div>
+                
+                <div class="installments-grid">
+                    <div class="installment">
+                        <span>1ª Parcela (Sem descontos)</span>
+                        <strong id="res-inst1">R$ 0,00</strong>
+                    </div>
+                    <div class="installment">
+                        <span>2ª Parcela (Com descontos)</span>
+                        <strong id="res-inst2">R$ 0,00</strong>
+                    </div>
+                </div>
+
+                <!-- Desconto INSS com Texto Legal -->
+                <div class="discount-box">
+                    <div class="discount-content">
+                        <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto INSS</span>
+                        <span class="legal-note">Calculado separadamente (Tabela Oficial 2026: 7,5% a 14% | Teto R$ 8.475,55)</span>
+                    </div>
+                    <span class="value" id="res-inss">R$ 0,00</span>
+                </div>
+                
+                <!-- Desconto IRRF com Texto Legal -->
+                <div class="discount-box" style="margin-bottom: 20px;">
+                    <div class="discount-content">
+                        <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto IRRF</span>
+                        <span class="legal-note">Tributação exclusiva na fonte - Com Redução Lei 15.270/2025</span>
+                    </div>
+                    <span class="value" id="res-irrf">R$ 0,00</span>
+                </div>
+
+                <div class="net-box">
+                    <span class="label"><div class="icon" style="background:var(--primary-blue); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px;"><i class="fa-solid fa-equals"></i></div> Valor líquido total</span>
+                    <span class="value" id="res-net">R$ 0,00</span>
+                </div>
+
+                <div class="info-alert">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <p><strong>Cálculo Oficial 2026:</strong> Estimativa para empregado CLT. O INSS é separado da folha normal, calculando faixa a faixa. O IRRF é exclusivo na fonte, aplicando a nova redução da Lei nº 15.270/2025 e o desconto simplificado de R$ 607,20, caso mais vantajoso.</p>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <i class="fa-solid fa-lock"></i> Seus dados não são armazenados. Cálculo feito localmente no seu navegador.
+            </div>
+
+        </div>
+
+        <!-- SIDE COLUMN (AD) -->
+        <div class="ad-column">
+            <div class="ad-icon">📢</div>
+            <h3>ESPAÇO<br>PARA SUA<br>PROPAGANDA</h3>
+            <p>Divulgue sua marca aqui e alcance mais pessoas!</p>
+            <button class="btn-ad"><i class="fa-solid fa-star" style="color: #ffd700; margin-right: 5px;"></i> SEU ANÚNCIO AQUI!</button>
+        </div>
+    </div>
+
+    <script>
+        const TaxRules = {
+            '2026': {
+                // Tabela Progressiva INSS 2026 (Usando base de cálculo por faixas para maior precisão matemática)
+                inss: [
+                    { max: 1621.00, rate: 0.075 },
+                    { max: 2902.84, rate: 0.090 },
+                    { max: 4354.27, rate: 0.120 },
+                    { max: 8475.55, rate: 0.140 }
+                ],
+                inssCeiling: 8475.55,
+                
+                // Tabela Exclusiva IRRF 2026
+                irrf: [
+                    { max: 2428.80, rate: 0, deduction: 0 },
+                    { max: 2826.65, rate: 0.075, deduction: 182.16 },
+                    { max: 3751.05, rate: 0.150, deduction: 394.16 },
+                    { max: 4664.68, rate: 0.225, deduction: 675.49 },
+                    { max: Infinity, rate: 0.275, deduction: 908.73 }
+                ],
+                dependentDeduction: 189.59,
+                simplifiedDeduction: 607.20 // Desconto Simplificado legal 2026 da Receita Federal
+            }
+        };
+
+        const CalculatorEngine = {
+            getRules(year) { return TaxRules[year]; },
+            
+            // Cálculo progressivo por faixas (Muito mais seguro contra arredondamentos de deduções)
+            calculateINSS(base13th, rules) {
+                if (base13th <= 0) return 0;
+                let inssValue = 0;
+                let prevMax = 0;
+                const calcBase = Math.min(base13th, rules.inssCeiling);
+                
+                for (let bracket of rules.inss) {
+                    if (calcBase > prevMax) {
+                        let amountInBracket = Math.min(calcBase, bracket.max) - prevMax;
+                        inssValue += amountInBracket * bracket.rate;
+                        prevMax = bracket.max;
+                    } else {
+                        break;
+                    }
+                }
+                return Math.max(0, inssValue);
+            },
+
+            // O IRRF é Tributação Exclusiva na Fonte + Redução 2026
+            calculateIRRF(base13th, inssDeduction, dependents, rules) {
+                const dependentTotalDeduction = dependents * rules.dependentDeduction;
+                const standardDeduction = inssDeduction + dependentTotalDeduction;
+                
+                // Verifica o que é mais vantajoso: Dedução legal VS Desconto Simplificado
+                const deductionToUse = Math.max(standardDeduction, rules.simplifiedDeduction);
+                
+                const taxableIncome = base13th - deductionToUse;
+                if (taxableIncome <= 0) return 0;
+                
+                let irrfValue = 0;
+                for (let bracket of rules.irrf) {
+                    if (taxableIncome <= bracket.max) {
+                        irrfValue = (taxableIncome * bracket.rate) - bracket.deduction;
+                        break;
+                    }
+                }
+
+                // APLICAÇÃO DA REDUÇÃO DA LEI Nº 15.270/2025
+                if (taxableIncome <= 5000.00) {
+                    irrfValue = 0; // Redução zera o imposto
+                } else if (taxableIncome <= 7350.00) {
+                    const reduction = 978.62 - (0.133145 * taxableIncome);
+                    if (reduction > 0) {
+                        irrfValue = Math.max(0, irrfValue - reduction);
+                    }
+                }
+                
+                return Math.max(0, irrfValue);
+            },
+
+            calculate13th(totalSalary, months, dependents, year = '2026') {
+                const rules = this.getRules(year);
+                
+                // O valor bruto do 13º
+                const grossTotal = (totalSalary / 12) * months;
+                
+                // A primeira parcela é exatamente a metade do bruto, sem descontos
+                const firstInstallment = grossTotal / 2;
+                
+                // Os descontos são calculados exclusivamente sobre o montante total do 13º
+                const inss = this.calculateINSS(grossTotal, rules);
+                const irrf = this.calculateIRRF(grossTotal, inss, dependents, rules);
+                
+                // A 2ª parcela absorve todos os descontos
+                const secondInstallment = grossTotal - firstInstallment - inss - irrf;
+                const netTotal = firstInstallment + secondInstallment;
+                
+                return { grossTotal, firstInstallment, secondInstallment, inss, irrf, netTotal };
+            }
+        };
+
+        const Validator = {
+            parseCurrency(value) {
+                if (!value) return 0;
+                const cleanStr = value.replace(/[R$\s\.]/g, '').replace(',', '.');
+                const num = parseFloat(cleanStr);
+                return isNaN(num) ? 0 : num;
+            }
+        };
+
+        const UI = {
+            els: {
+                form: document.getElementById('calc-form'),
+                salary: document.getElementById('input-salary'),
+                months: document.getElementById('input-months'),
+                dependents: document.getElementById('input-dependents'),
+                he: document.getElementById('input-he'),
+                noturno: document.getElementById('input-noturno'),
+                insalubridade: document.getElementById('input-insalubridade'),
+                periculosidade: document.getElementById('input-periculosidade'),
+                comissoes: document.getElementById('input-comissoes'),
+                gratificacoes: document.getElementById('input-gratificacoes'),
+                outras: document.getElementById('input-outras'),
+                errorSalary: document.getElementById('error-salary'),
+                errorMonths: document.getElementById('error-months'),
+                resultSection: document.getElementById('result-section'),
+                resGross: document.getElementById('res-gross'),
+                resInst1: document.getElementById('res-inst1'),
+                resInst2: document.getElementById('res-inst2'),
+                resInss: document.getElementById('res-inss'),
+                resIrrf: document.getElementById('res-irrf'),
+                resNet: document.getElementById('res-net')
+            },
+
+            init() { this.bindEvents(); },
+
+            bindEvents() {
+                document.querySelectorAll('.money-input').forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        let val = e.target.value.replace(/\D/g, '');
+                        if (val === '') { e.target.value = ''; return; }
+                        val = (parseInt(val, 10) / 100).toFixed(2);
+                        val = val.replace('.', ',');
+                        val = val.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+                        e.target.value = val;
+                        if(e.target.id === 'input-salary') this.clearErrors();
+                    });
+                });
+                this.els.months.addEventListener('change', () => this.clearErrors());
+                this.els.form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.processCalculation();
+                });
+            },
+
+            formatMoney(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); },
+
+            clearErrors() {
+                this.els.errorSalary.style.display = 'none';
+                this.els.errorMonths.style.display = 'none';
+                this.els.salary.style.borderColor = 'var(--input-border)';
+                this.els.months.style.borderColor = 'var(--input-border)';
+            },
+
+            processCalculation() {
+                this.clearErrors();
+                this.els.resultSection.style.display = 'none';
+
+                const salary = Validator.parseCurrency(this.els.salary.value);
+                const months = parseInt(this.els.months.value, 10);
+                let dependents = parseInt(this.els.dependents.value, 10);
+                if (isNaN(dependents) || dependents < 0) dependents = 0;
+
+                let hasError = false;
+                if (salary <= 0) { this.els.errorSalary.style.display = 'block'; this.els.salary.style.borderColor = 'var(--red-text)'; hasError = true; }
+                if (isNaN(months) || months < 1 || months > 12) { this.els.errorMonths.style.display = 'block'; this.els.months.style.borderColor = 'var(--red-text)'; hasError = true; }
+                if (hasError) return;
+
+                const totalExtras = 
+                    Validator.parseCurrency(this.els.he.value) +
+                    Validator.parseCurrency(this.els.noturno.value) +
+                    Validator.parseCurrency(this.els.insalubridade.value) +
+                    Validator.parseCurrency(this.els.periculosidade.value) +
+                    Validator.parseCurrency(this.els.comissoes.value) +
+                    Validator.parseCurrency(this.els.gratificacoes.value) +
+                    Validator.parseCurrency(this.els.outras.value);
+
+                const finalBaseSalary = salary + totalExtras;
+
+                try {
+                    const result = CalculatorEngine.calculate13th(finalBaseSalary, months, dependents, '2026');
+                    this.renderResults(result);
+                } catch (error) { alert("Erro interno: " + error.message); }
+            },
+
+            renderResults(result) {
+                this.els.resGross.innerText = this.formatMoney(result.grossTotal);
+                this.els.resInst1.innerText = this.formatMoney(result.firstInstallment);
+                this.els.resInst2.innerText = this.formatMoney(result.secondInstallment);
+                this.els.resInss.innerText = this.formatMoney(result.inss);
+                this.els.resIrrf.innerText = this.formatMoney(result.irrf);
+                this.els.resNet.innerText = this.formatMoney(result.netTotal);
+
+                this.els.resultSection.style.display = 'block';
+                setTimeout(() => this.els.resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => { UI.init(); });
+    </script>
+</body>
+</html>
