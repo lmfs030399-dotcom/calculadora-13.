@@ -3,99 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Décimo Terceiro Salário</title>
+  <title>Calculadora de 13º Salário</title>
   <link rel="stylesheet" href="assets/css/style.css">
   
   <!-- Google Analytics -->
   <script>window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";</script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="/" class="logo">13º <span>Calculadora</span></a>
-    </div>
-  </header>
 
-  <main class="container main-layout">
+  <div class="layout-wrapper">
     
-    <!-- LADO ESQUERDO: O FORMULÁRIO -->
-    <section class="calculator-card">
-      <div class="section-heading-compact">
-        <h1>Calcule seu 13º salário</h1>
-        <p>Preencha os dados básicos. O cálculo é feito na hora.</p>
-      </div>
+    <!-- COLUNA ESQUERDA: CALCULADORA E RESULTADOS -->
+    <main class="main-content">
       
-      <form id="calculatorForm">
-        <div class="form-grid">
-          <div class="field">
-            <label for="salary">Salário-base <span class="tooltip" title="Seu salário bruto mensal registrado em carteira, sem os descontos.">?</span></label>
-            <div class="input-money">
-              <span>R$</span>
-              <input id="salary" name="salary" type="number" min="0" step="0.01" placeholder="3.000,00" required>
-            </div>
-          </div>
-          
-          <div class="field">
-            <label for="months">Meses trabalhados <span class="tooltip" title="Quantos meses você trabalhou na empresa este ano. A data de admissão preenche isso sozinha.">?</span></label>
-            <input id="months" name="months" type="number" min="1" max="12" step="1" placeholder="12">
-          </div>
-          
-          <div class="field">
-            <label for="admission">Data de admissão <span class="tooltip" title="Se você entrou na empresa este ano, coloque a data para calcularmos os meses exatos.">?</span></label>
-            <input id="admission" name="admission" type="date">
-          </div>
-          
-          <div class="field">
-            <label for="year">Ano de cálculo</label>
-            <select id="year"><option value="2026" selected>2026</option></select>
+      <!-- Cabeçalho Animado -->
+      <header class="app-header">
+        <div class="header-titles">
+          <h2>CALCULADORA DE</h2>
+          <h1>13º SALÁRIO</h1>
+          <span class="badge-subtitle">Simples, rápida e feita pra você!</span>
+        </div>
+      </header>
+
+      <!-- CARD 1: FORMULÁRIO DE DADOS -->
+      <section class="card">
+        <div class="card-header">
+          <div class="icon-circle blue">📟</div>
+          <div>
+            <h3>INFORME SEUS DADOS</h3>
+            <p>Preencha os campos abaixo para calcular seu 13º salário.</p>
           </div>
         </div>
 
-        <!-- SESSÃO ESCONDIDA: SÓ ABRE SE A PESSOA QUISER -->
-        <details class="advanced-options">
-          <summary>Opções avançadas (Horas extras, adicionais e dependentes)</summary>
-          <div class="form-grid compact-grid">
-            <div class="field"><label for="overtime">Horas extras <span class="tooltip" title="Média mensal de horas extras recebidas no ano.">?</span></label><input id="overtime" type="number" min="0" step="0.01"></div>
-            <div class="field"><label for="night">Adicional noturno</label><input id="night" type="number" min="0" step="0.01"></div>
-            <div class="field"><label for="insalubrity">Insalubridade</label><input id="insalubrity" type="number" min="0" step="0.01"></div>
-            <div class="field"><label for="danger">Periculosidade</label><input id="danger" type="number" min="0" step="0.01"></div>
-            <div class="field"><label for="commissions">Comissões</label><input id="commissions" type="number" min="0" step="0.01"></div>
-            <div class="field"><label for="bonus">Gratificações</label><input id="bonus" type="number" min="0" step="0.01"></div>
-            <div class="field full-width"><label for="dependents">Dependentes legais <span class="tooltip" title="Filhos ou pessoas que você declara no Imposto de Renda. Ajuda a diminuir o desconto.">?</span></label><input id="dependents" type="number" min="0" step="1" value="0"></div>
+        <form id="calculatorForm">
+          <div class="form-group">
+            <label for="salary">Salário bruto mensal (R$)</label>
+            <div class="input-with-icon">
+              <span class="icon-money">R$</span>
+              <input id="salary" type="number" step="0.01" min="0" placeholder="Ex.: 2.500,00" required>
+            </div>
           </div>
-        </details>
-        
-        <button type="submit" class="button primary full" style="margin-top: 25px;">Calcular agora</button>
-      </form>
-    </section>
 
-    <!-- LADO DIREITO: O RESULTADO -->
-    <section class="result-card" id="result">
-      <div class="result-header">
-        <span class="eyebrow">Resultado estimado</span>
-        <h2>O que você vai receber</h2>
-      </div>
-      
-      <div class="main-result">
-        <span>Valor líquido total (O que cai na conta)</span>
-        <strong id="netResult">R$ 0,00</strong>
-      </div>
-      
-      <div class="result-grid">
-        <div class="result-item"><span>Valor Bruto</span><strong id="grossResult">R$ 0,00</strong></div>
-        <div class="result-item highlight"><span>1ª Parcela (Até Nov)</span><strong id="firstInstallment">R$ 0,00</strong></div>
-        <div class="result-item highlight"><span>2ª Parcela (Até Dez)</span><strong id="secondInstallment">R$ 0,00</strong></div>
-        <div class="result-item"><span>INSS Retido</span><strong id="inssResult">R$ 0,00</strong></div>
-        <div class="result-item"><span>IRRF Retido</span><strong id="irResult">R$ 0,00</strong></div>
-        <div class="result-item"><span>Avos Adquiridos</span><strong id="monthsResult">0/12</strong></div>
-      </div>
-      
-      <div class="calculation-explanation">
-        <p id="explanation">Preencha os dados ao lado para visualizar o detalhamento do seu benefício.</p>
-      </div>
-    </section>
+          <div class="row-group">
+            <div class="form-group">
+              <label for="months">Número de meses trabalhados</label>
+              <select id="months">
+                <option value="12" selected>12 meses (Integral)</option>
+                <option value="11">11 meses</option>
+                <option value="10">10 meses</option>
+                <option value="9">9 meses</option>
+                <option value="8">8 meses</option>
+                <option value="7">7 meses</option>
+                <option value="6">6 meses</option>
+                <option value="5">5 meses</option>
+                <option value="4">4 meses</option>
+                <option value="3">3 meses</option>
+                <option value="2">2 meses</option>
+                <option value="1">1 mês</option>
+              </select>
+            </div>
+            <div class="tip-box light-green">
+              💡 Considere fração de 15 dias ou mais como 1 mês trabalhado.
+            </div>
+          </div>
 
-  </main>
+          <!-- Opções Avançadas (Projeto Inicial) Ocultas num menu sanfona elegante -->
+          <details class="advanced-details">
+            <summary>⚙️ Mostrar campos avançados (Data de admissão, Horas Extras, Dependentes...)</summary>
+            <div class="advanced-grid">
+              <div class="form-group">
+                <label for="admission">Data de Admissão</label>
+                <input id="admission" type="date">
+              </div>
+              <div class="form-group">
+                <label for="year">Ano de Referência</label>
+                <select id="year"><option value="2026" selected>2026</option></select>
+              </div>
+              <div class="form-group"><label>Horas Extras (R$)</label><input id="overtime" type="number" step="0.01" placeholder="0,00"></div>
+              <div class="form-group"><label>Adic. Noturno (R$)</label><input id="night" type="number" step="0.01" placeholder="0,00"></div>
+              <div class="form-group"><label>Insalubridade (R$)</label><input id="insalubrity" type="number" step="0.01" placeholder="0,00"></div>
+              <div class="form-group"><label>Periculosidade (R$)</label><input id="danger" type="number" step="0.01" placeholder="0,00"></div>
+              <div class="form-group"><label>Comissões/Bônus (R$)</label><input id="commissions" type="number" step="0.01" placeholder="0,00"></div>
+              <div class="form-group"><label>Dependentes (IRRF)</label><input id="dependents" type="number" step="1" value="0"></div>
+            </div>
+          </details>
+
+          <button type="submit" class="btn-calculate">Calcular 13º Salário</button>
+        </form>
+      </section>
+
+      <!-- CARD 2: RESULTADOS (Inicia Oculto) -->
+      <section class="card" id="resultCard" style="display: none;">
+        <div class="card-header">
+          <div class="icon-circle blue">💰</div>
+          <div>
+            <h3>SEU RESULTADO</h3>
+            <p>Confira os valores da sua estimativa.</p>
+          </div>
+        </div>
+
+        <div class="result-box gross-box">
+          <span>Valor bruto do 13º salário</span>
+          <strong id="grossResult">R$ 0,00</strong>
+        </div>
+
+        <div class="result-row">
+          <div class="result-box discount-box">
+            <span class="minus-icon">(-) Descontos</span>
+            <div>INSS: <strong id="inssResult">R$ 0,00</strong></div>
+            <div>IRRF: <strong id="irResult">R$ 0,00</strong></div>
+          </div>
+          
+          <div class="result-box net-box">
+            <span class="equals-icon">Valor líquido total</span>
+            <strong id="netResult">R$ 0,00</strong>
+          </div>
+        </div>
+
+        <!-- Divisão das parcelas (Detalhe exigido no projeto inicial) -->
+        <div class="installments-info">
+          <div>👉 <strong>1ª Parcela (Sem descontos):</strong> <span id="firstInstallment">R$ 0,00</span></div>
+          <div>👉 <strong>2ª Parcela (Com descontos):</strong> <span id="secondInstallment">R$ 0,00</span></div>
+        </div>
+
+        <div class="info-banner purple">
+          <div class="info-icon">i</div>
+          <div class="info-text">
+            <strong>Lembre-se: o 13º salário é um direito seu!</strong>
+            Planeje-se e aproveite conquistas incríveis. 💪✨
+          </div>
+        </div>
+      </section>
+
+      <!-- Dica Esperta -->
+      <div class="info-banner yellow">
+        <div class="info-icon">⭐</div>
+        <div class="info-text">
+          <strong>Dica esperta</strong>
+          Use seu 13º com sabedoria: quite dívidas, invista ou realize sonhos!
+        </div>
+      </div>
+
+      <footer class="security-footer">
+        🔒 Seus dados não são armazenados. Cálculo apenas para sua informação.
+      </footer>
+
+    </main>
+
+    <!-- COLUNA DIREITA: ÁREA DE PROPAGANDA -->
+    <aside class="ad-sidebar">
+      <div class="ad-placeholder-tall">
+        <div class="ad-content">
+          <span class="ad-icon">📢</span>
+          <h3>ESPAÇO PARA SUA PROPAGANDA</h3>
+          <p>Seu anúncio do Google AdSense aparecerá automaticamente aqui assim que sua conta for aprovada.</p>
+          
+          <!-- CÓDIGO DO GOOGLE ADSENSE (Descomente quando for aprovado) -->
+          <!--
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+          -->
+        </div>
+      </div>
+    </aside>
+
+  </div>
 
   <script src="assets/js/calculator.js"></script>
 </body>
