@@ -62,9 +62,10 @@
             background-attachment: fixed;
         }
         
-        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+        /* Ajustado para 1 coluna centralizada e largura máxima de 800px */
+        .container { max-width: 800px; width: 100%; display: grid; grid-template-columns: 1fr; gap: 30px; }
         
-        .header { grid-column: 1 / -1; text-align: center; position: relative; margin-bottom: 20px; }
+        .header { text-align: center; position: relative; margin-bottom: 20px; }
         .header h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 4px 15px rgba(0,0,0,0.1); }
         .header h1 span { color: var(--primary-blue); }
         .subtitle-badge { background-color: var(--yellow-accent); display: inline-block; padding: 5px 20px; border-radius: 20px; font-weight: 700; font-size: 1.1rem; transform: rotate(-2deg); margin-top: 10px; box-shadow: 0 4px 10px rgba(255, 225, 105, 0.4); border: 2px solid #fff; }
@@ -134,12 +135,6 @@
         .info-alert p { color: var(--purple-text); font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
         
         .footer-note { text-align: center; font-size: 0.85rem; color: #1a2b4c; font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(5px); }
-
-        .ad-column { background-color: var(--light-blue); border: 2px dashed #a4c4f9; border-radius: var(--border-radius-lg); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .ad-icon { font-size: 4rem; margin-bottom: 20px; }
-        .ad-column h3 { color: var(--primary-blue); font-size: 1.6rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; }
-        .ad-column p { color: var(--text-muted); font-weight: 600; margin-bottom: 30px; }
-        .btn-ad { background: var(--blue-gradient); color: white; border: none; padding: 12px 25px; border-radius: var(--border-radius-sm); font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
 
         /* ESTILOS DO POPUP (MODAL) DE MÉDIAS */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 43, 76, 0.8); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s; }
@@ -219,7 +214,7 @@
         .btn-outline { padding: 12px 20px; background: transparent; border: 2px solid var(--input-border); color: var(--text-muted); font-weight: 700; border-radius: var(--border-radius-sm); cursor: pointer; }
         .btn-save { padding: 12px 25px; background: var(--blue-gradient); color: white; border: none; font-weight: 800; border-radius: var(--border-radius-sm); cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
 
-        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
+        @media (max-width: 850px) { .header h1 { font-size: 2rem; } }
         @media (max-width: 500px) { .grid-2, .extras-grid { grid-template-columns: 1fr; } .result-box, .net-box { flex-direction: column; text-align: center; gap: 10px; } .installments-grid { grid-template-columns: 1fr; } .modal-footer { flex-direction: column; } .btn-save, .btn-outline { width: 100%; text-align: center; } }
     </style>
 </head>
@@ -419,13 +414,6 @@
 
         </div>
 
-        <!-- SIDE COLUMN (AD) -->
-        <div class="ad-column">
-            <div class="ad-icon">📢</div>
-            <h3>ESPAÇO<br>PARA SUA<br>PROPAGANDA</h3>
-            <p>Divulgue sua marca aqui e alcance mais pessoas!</p>
-            <button class="btn-ad"><i class="fa-solid fa-star" style="color: #ffd700; margin-right: 5px;"></i> SEU ANÚNCIO AQUI!</button>
-        </div>
     </div>
 
     <!-- POPUP / MODAL DE MÉDIAS -->
