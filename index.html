@@ -7,6 +7,9 @@
     <!-- TAG DE VERIFICAÇÃO DO GOOGLE SEARCH CONSOLE -->
     <meta name="google-site-verification" content="V4kV8SQ-sMx6sRbcSEscGqSbxQRWTuQrLRSPOLc_QxY" />
     
+    <!-- GOOGLE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731389594903841" crossorigin="anonymous"></script>
+    
     <title>Calculadora de 13º Salário 2026 - Valor Líquido Exato</title>
     <meta name="description" content="Calcule seu 13º salário com as regras oficiais da CLT para 2026. Saiba o valor da 1ª e 2ª parcela já com descontos atualizados de INSS e IRRF. Rápido, seguro e grátis.">
     <meta name="keywords" content="calculadora 13 salario, decimo terceiro, calculo 13 CLT, calcular decimo, regras 2026, desconto INSS 13, IRRF 13 salario, vem decimo">
@@ -150,7 +153,7 @@
 
         .modal-section-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
         
-        /* -------------- NOVO ESTILO DOS CHECKBOXES -------------- */
+        /* ESTILO DOS CHECKBOXES PÍLULA (Custom) */
         .checkbox-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
@@ -169,15 +172,13 @@
             font-weight: 700; 
             color: var(--text-main); 
             cursor: pointer; 
-            user-select: none; /* Evita selecionar o texto ao clicar */
+            user-select: none; 
         }
 
-        /* Esconde o checkbox padrão quadradinho */
         .checkbox-item input[type="checkbox"] { 
             display: none; 
         }
 
-        /* Cria a caixinha branca estilo 'pílula' baseada na sua imagem */
         .checkbox-item .custom-check { 
             width: 55px; 
             height: 30px; 
@@ -190,27 +191,23 @@
             transition: all 0.2s; 
         }
 
-        /* Ícone de check escondido por padrão */
         .checkbox-item .custom-check i { 
-            color: #e63946; /* Um vermelho vivo parecido com o da sua imagem */ 
+            color: #e63946; 
             font-size: 1.2rem; 
             opacity: 0; 
             transform: scale(0.5); 
             transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
 
-        /* Efeito de quando o usuário seleciona a opção */
         .checkbox-item input[type="checkbox"]:checked + .custom-check { 
             border-color: #e63946; 
             box-shadow: 0 4px 10px rgba(230, 57, 70, 0.15); 
         }
         
-        /* Aparece o Vzinho vermelho com uma pequena animação de pulo */
         .checkbox-item input[type="checkbox"]:checked + .custom-check i { 
             opacity: 1; 
             transform: scale(1); 
         }
-        /* -------------------------------------------------------- */
 
         .months-container { overflow-x: auto; margin-bottom: 25px; }
         .months-table { width: 100%; border-collapse: collapse; min-width: 500px; }
@@ -446,7 +443,6 @@
             <div class="modal-section-title">1. Quais verbas você recebeu?</div>
             <div class="checkbox-grid" id="modal-checkboxes">
                 
-                <!-- A estrutura mudou: adicionei a <span class="custom-check"> com o ícone dentro -->
                 <label class="checkbox-item">
                     <input type="checkbox" value="he" data-label="Horas Extras">
                     <span class="custom-check"><i class="fa-solid fa-check"></i></span>
