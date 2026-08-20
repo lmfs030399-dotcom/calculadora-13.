@@ -7,259 +7,219 @@
     <!-- TAG DE VERIFICAÇÃO DO GOOGLE SEARCH CONSOLE -->
     <meta name="google-site-verification" content="4XnD7XyjXdQx1deMk7P72QaRiPWFrtpY9-zh17znFrs" />
     
-    <!-- GOOGLE ADSENSE -->
+    <!-- GOOGLE ADSENSE (Script principal carregado no cabeçalho) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731389594903841" crossorigin="anonymous"></script>
     
     <title>Calculadora de 13º Salário 2026 - Valor Líquido Exato</title>
     <meta name="description" content="Calcule seu 13º salário com as regras oficiais da CLT para 2026. Saiba o valor da 1ª e 2ª parcela já com descontos atualizados de INSS e IRRF. Rápido, seguro e grátis.">
-    
-    <!-- Open Graph -->
+    <meta name="keywords" content="calculadora 13 salario, decimo terceiro, calculo 13 CLT, calcular decimo, regras 2026, desconto INSS 13, IRRF 13 salario, vem decimo">
+
     <meta property="og:title" content="Calculadora de 13º Salário 2026 🐷">
     <meta property="og:description" content="Descubra rapidinho quanto você vai receber de décimo terceiro este ano! Clique e calcule grátis.">
-    <meta property="og:image" content="https://vemdecimo.vercel.app/nova.png">
+    <meta property="og:image" content="https://vemdecimo.vercel.app/image_443a2e.jpg">
     <meta property="og:url" content="https://vemdecimo.vercel.app/">
     <meta property="og:type" content="website">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Cores atualizadas para combinar com o fundo nova.png (Tons quentes, verde Pix e azuis marinhos) */
-            --text-main: #273444;
+            --text-main: #1a2b4c;
             --text-muted: #5e6e87;
-            --primary-blue: #1e40af; /* Azul mais profundo e elegante */
-            --light-blue: #eff6ff;
-            --blue-gradient: linear-gradient(135deg, #2563eb, #1e40af);
-            --card-bg: rgba(255, 255, 255, 0.96); /* Leve transparência para mesclar com o fundo */
-            --input-border: #cbd5e1;
-            --input-bg: #f8fafc;
-            --yellow-accent: #f59e0b; /* Amarelo quente combinando com os cachorros */
-            --yellow-light: #fef3c7;
-            --red-light: #fee2e2;
-            --red-text: #dc2626;
-            --green-light: #d1fae5;
-            --green-text: #059669; /* Verde estilo PIX */
-            --purple-light: #f3e8ff;
-            --purple-text: #7e22ce;
-            
+            --primary-blue: #2c73eb;
+            --light-blue: #e8f1fc;
+            --blue-gradient: linear-gradient(135deg, #4a8df8, #1c5fd1);
+            --card-bg: #ffffff;
+            --input-border: #d2dce6;
+            --input-bg: #f9fbfd;
+            --yellow-accent: #ffe169;
+            --yellow-light: #fff8d6;
+            --red-light: #ffefef;
+            --red-text: #d93f3f;
+            --green-light: #e6f6eb;
+            --green-text: #20874b;
+            --purple-light: #f5edfc;
+            --purple-text: #6b33a8;
             --border-radius-sm: 12px;
-            --border-radius-md: 24px; /* Bordas um pouco mais arredondadas para modernidade */
+            --border-radius-md: 20px;
+            --border-radius-lg: 30px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
         
         body { 
-            background-color: #f4eadc; /* Cor de fallback similar ao fundo nova.png */
+            background-color: #fdf3e1; 
             color: var(--text-main); 
             display: flex; 
             justify-content: center; 
             padding: 40px 20px; 
-            background-image: url('nova.png'); /* Atualizado para nova imagem */
-            background-size: 800px; /* Tamanho ajustado para não ficar gigante */
+            background-image: url('image_443a2e.jpg'); 
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-repeat: repeat;
         }
         
+        /* Layout de 2 colunas para caber o anúncio de 360px na direita */
         .container { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1fr 360px; gap: 30px; }
         
-        /* HEADER ATUALIZADO */
-        .header { grid-column: 1 / -1; text-align: center; position: relative; margin-bottom: 25px; }
-        .header h1 { 
-            font-size: 3rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: -1px; 
-            color: var(--text-main);
-            /* Sombra forte para destacar do fundo estampado */
-            text-shadow: 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 0 8px 20px rgba(0,0,0,0.15); 
-        }
+        .header { grid-column: 1 / -1; text-align: center; position: relative; margin-bottom: 20px; }
+        .header h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 4px 15px rgba(0,0,0,0.1); }
         .header h1 span { color: var(--primary-blue); }
-        .subtitle-badge { 
-            background-color: var(--yellow-accent); 
-            color: #fff;
-            display: inline-block; 
-            padding: 6px 24px; 
-            border-radius: 30px; 
-            font-weight: 800; 
-            font-size: 1.1rem; 
-            transform: rotate(-2deg); 
-            margin-top: 10px; 
-            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4); 
-            border: 2px solid #fff; 
-            letter-spacing: 0.5px;
-        }
+        .subtitle-badge { background-color: var(--yellow-accent); display: inline-block; padding: 5px 20px; border-radius: 20px; font-weight: 700; font-size: 1.1rem; transform: rotate(-2deg); margin-top: 10px; box-shadow: 0 4px 10px rgba(255, 225, 105, 0.4); border: 2px solid #fff; }
         
-        .main-column { display: flex; flex-direction: column; gap: 25px; }
-        
-        /* CARDS MAIS MODERNOS */
-        .card { 
-            background-color: var(--card-bg); 
-            backdrop-filter: blur(8px); /* Efeito de vidro */
-            border-radius: var(--border-radius-md); 
-            padding: 35px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
-            border: 1px solid rgba(255,255,255,1); 
-        }
-        
-        .card-header { display: flex; align-items: center; gap: 18px; margin-bottom: 25px; }
-        .icon-circle { width: 50px; height: 50px; border-radius: 16px; background: var(--blue-gradient); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2); transform: rotate(-3deg); }
-        .card-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
-        .card-header p { font-size: 0.95rem; color: var(--text-muted); margin-top: 4px; }
+        .main-column { display: flex; flex-direction: column; gap: 20px; }
+        .card { background-color: var(--card-bg); border-radius: var(--border-radius-md); padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .icon-circle { width: 45px; height: 45px; border-radius: 50%; background-color: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .card-header h2 { font-size: 1.2rem; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; }
+        .card-header p { font-size: 0.9rem; color: var(--text-muted); margin-top: 2px; }
 
-        /* INPUTS ESTILIZADOS */
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; color: var(--text-main); font-size: 0.95rem; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--text-main); font-size: 0.95rem; }
         .input-wrapper { position: relative; display: flex; align-items: center; }
-        .input-icon { position: absolute; left: 15px; width: 32px; height: 32px; background-color: var(--green-light); color: var(--green-text); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 800; }
+        .input-icon { position: absolute; left: 15px; width: 30px; height: 30px; background-color: var(--green-light); color: var(--green-text); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 700; }
         .input-icon.blue { background-color: var(--light-blue); color: var(--primary-blue); }
-        .input-icon.gray { background-color: #e2e8f0; color: #64748b; }
+        .input-icon.gray { background-color: #f0f0f0; color: #666; }
         .input-icon.purple { background-color: var(--purple-light); color: var(--purple-text); }
         
-        input, select { 
-            width: 100%; 
-            padding: 16px 16px 16px 60px; 
-            border: 2px solid var(--input-border); 
-            border-radius: var(--border-radius-sm); 
-            background-color: var(--input-bg); 
-            font-size: 1.05rem; 
-            font-weight: 700; 
-            color: var(--text-main); 
-            outline: none; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            appearance: none; 
-        }
-        select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235e6e87' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 18px) center; }
-        input:focus, select:focus { border-color: var(--primary-blue); background-color: #fff; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); transform: translateY(-2px); }
+        input, select { width: 100%; padding: 15px 15px 15px 55px; border: 2px solid var(--input-border); border-radius: var(--border-radius-sm); background-color: var(--input-bg); font-size: 1rem; font-weight: 600; color: var(--text-main); outline: none; transition: all 0.2s; appearance: none; }
+        select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235e6e87' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 15px) center; }
+        input:focus, select:focus { border-color: var(--primary-blue); background-color: #fff; box-shadow: 0 0 0 4px rgba(44, 115, 235, 0.1); }
 
-        .extras-box { background-color: #fff; border: 2px dashed #cbd5e1; border-radius: var(--border-radius-sm); padding: 25px; margin-bottom: 25px; transition: 0.3s; }
-        .extras-box:hover { border-color: var(--primary-blue); }
-        .extras-title { font-size: 1rem; font-weight: 800; color: var(--text-main); margin-bottom: 15px; text-align: center; }
+        .extras-box { background-color: #fcfcfc; border: 2px dashed var(--input-border); border-radius: var(--border-radius-sm); padding: 20px; margin-bottom: 25px; }
+        .extras-title { font-size: 0.95rem; font-weight: 800; color: var(--text-muted); margin-bottom: 15px; text-align: center; }
         
-        .btn-open-modal { width: 100%; margin-bottom: 25px; padding: 14px; background: var(--purple-light); color: var(--purple-text); border: 2px dashed var(--purple-text); border-radius: var(--border-radius-sm); font-weight: 800; font-size: 1rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .btn-open-modal:hover { background: #e9d5ff; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(126, 34, 206, 0.15); }
+        .btn-open-modal { width: 100%; margin-bottom: 20px; padding: 12px; background: var(--purple-light); color: var(--purple-text); border: 2px dashed var(--purple-text); border-radius: var(--border-radius-sm); font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-open-modal:hover { background: #ebdfff; transform: translateY(-1px); }
 
-        .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .extras-grid .form-group { margin-bottom: 0; }
-        .extras-grid label { font-size: 0.85rem; color: var(--text-muted); }
-        .extras-grid input { padding: 14px 14px 14px 50px; font-size: 1rem; }
-        .extras-grid .input-icon { width: 28px; height: 28px; font-size: 0.85rem; left: 12px; }
+        .extras-grid label { font-size: 0.85rem; color: #555; }
+        .extras-grid input { padding: 12px 12px 12px 45px; font-size: 0.95rem; transition: background-color 0.3s; }
+        .extras-grid .input-icon { width: 24px; height: 24px; font-size: 0.8rem; left: 10px; }
 
-        .hint-box { background-color: var(--green-light); border-radius: var(--border-radius-sm); padding: 15px; display: flex; gap: 12px; align-items: center; margin-bottom: 25px; font-size: 0.9rem; color: var(--green-text); font-weight: 700; border: 1px solid #a7f3d0; }
+        .hint-box { background-color: var(--green-light); border-radius: var(--border-radius-sm); padding: 12px 15px; display: flex; gap: 10px; align-items: center; margin-top: -5px; margin-bottom: 20px; font-size: 0.85rem; color: var(--green-text); font-weight: 600; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        
-        /* BOTÃO PRINCIPAL */
-        .btn-calc { width: 100%; padding: 20px; background: var(--blue-gradient); color: white; border: none; border-radius: 16px; font-size: 1.2rem; font-weight: 900; cursor: pointer; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-transform: uppercase; letter-spacing: 1px; }
-        .btn-calc:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5); }
-        .btn-calc:active { transform: translateY(1px); }
-        
-        .error-msg { color: var(--red-text); font-size: 0.85rem; font-weight: 800; margin-top: 6px; display: none; }
+        .btn-calc { width: 100%; padding: 18px; background: var(--blue-gradient); color: white; border: none; border-radius: var(--border-radius-sm); font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 15px rgba(44, 115, 235, 0.3); transition: transform 0.1s, box-shadow 0.1s; }
+        .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44, 115, 235, 0.4); }
+        .error-msg { color: var(--red-text); font-size: 0.85rem; font-weight: 700; margin-top: 5px; display: none; }
 
-        #result-section { display: none; animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        #result-section { display: none; animation: slideUp 0.4s ease-out forwards; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ESTILOS DO RESULTADO */
-        .result-box { background-color: var(--yellow-light); border: 2px solid #fde68a; border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .result-box .label { font-weight: 800; color: #b45309; }
-        .result-box .value { font-size: 1.8rem; font-weight: 900; color: #059669; }
+        .result-box { background-color: var(--yellow-light); border: 2px solid var(--yellow-accent); border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .result-box .label { font-weight: 700; color: #856404; }
+        .result-box .value { font-size: 1.8rem; font-weight: 900; color: #28a745; }
 
-        .discount-box { background-color: var(--red-light); border: 1px dashed #fecaca; border-radius: var(--border-radius-sm); padding: 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .discount-box { background-color: var(--red-light); border: 1px dashed #f5c2c7; border-radius: var(--border-radius-sm); padding: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .discount-content { display: flex; flex-direction: column; }
-        .discount-box .label { font-weight: 800; color: var(--red-text); display: flex; align-items: center; gap: 8px;}
-        .discount-box .legal-note { font-size: 0.8rem; color: #991b1b; font-weight: 700; margin-left: 36px; margin-top: 4px; }
-        .discount-box .value { font-size: 1.3rem; font-weight: 900; color: var(--red-text); }
-        .discount-box .icon { width: 28px; height: 28px; background: white; border-radius: 8px; display: flex; align-items:center; justify-content:center; color: var(--red-text); font-size:0.9rem; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.2); }
+        .discount-box .label { font-weight: 600; color: var(--red-text); display: flex; align-items: center; gap: 8px;}
+        .discount-box .legal-note { font-size: 0.75rem; color: #a85858; font-weight: 700; margin-left: 32px; margin-top: 2px; }
+        .discount-box .value { font-size: 1.2rem; font-weight: 800; color: var(--red-text); }
+        .discount-box .icon { width: 24px; height: 24px; background: white; border-radius: 50%; display: flex; align-items:center; justify-content:center; color: var(--red-text); font-size:0.8rem;}
 
-        .net-box { background-color: var(--light-blue); border-radius: 16px; padding: 25px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border: 2px solid var(--primary-blue); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1); }
-        .net-box .label { font-weight: 900; color: var(--primary-blue); display: flex; align-items: center; gap: 12px; font-size: 1.1rem; }
-        .net-box .value { font-size: 2.2rem; font-weight: 900; color: var(--primary-blue); }
+        .net-box { background-color: var(--light-blue); border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border: 2px solid var(--primary-blue); }
+        .net-box .label { font-weight: 700; color: var(--primary-blue); display: flex; align-items: center; gap: 8px;}
+        .net-box .value { font-size: 1.8rem; font-weight: 900; color: var(--primary-blue); }
         
-        .installments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .installment { background: #fff; border: 2px solid #e2e8f0; padding: 15px; border-radius: 12px; text-align: center; transition: 0.3s; }
-        .installment:hover { border-color: var(--primary-blue); transform: translateY(-2px); }
-        .installment span { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 800; margin-bottom: 6px;}
-        .installment strong { font-size: 1.3rem; font-weight: 900; color: var(--text-main); }
+        .installments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .installment { background: #f8f9fa; border: 1px solid #e9ecef; padding: 12px; border-radius: 8px; text-align: center; }
+        .installment span { display: block; font-size: 0.85rem; color: #6c757d; font-weight: 700; margin-bottom: 4px;}
+        .installment strong { font-size: 1.1rem; color: var(--text-main); }
 
-        .info-alert { background-color: var(--light-blue); border-radius: var(--border-radius-sm); padding: 18px; display: flex; gap: 15px; align-items: flex-start; border: 1px solid #bfdbfe; }
-        .info-alert i { color: var(--primary-blue); font-size: 1.5rem; margin-top: 2px; }
-        .info-alert p { color: var(--primary-blue); font-size: 0.9rem; font-weight: 700; line-height: 1.5; }
+        .info-alert { background-color: var(--purple-light); border-radius: var(--border-radius-sm); padding: 15px; display: flex; gap: 15px; align-items: center; }
+        .info-alert i { color: var(--purple-text); font-size: 1.5rem; margin-top: 5px; }
+        .info-alert p { color: var(--purple-text); font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
         
-        .footer-note { text-align: center; font-size: 0.9rem; color: var(--text-main); font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.9); padding: 12px 25px; border-radius: 30px; backdrop-filter: blur(5px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #fff; }
-
-        /* ========================================= */
-        /* NOVO MENU DE DÚVIDAS FREQUENTES (ACCORDION) */
-        /* ========================================= */
-        .faq-intro { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 600; }
-        .accordion-item { border-bottom: 1px solid var(--input-border); }
-        .accordion-item:last-child { border-bottom: none; }
-        
-        .accordion-header {
-            width: 100%; text-align: left; padding: 18px 0; background: none; border: none;
-            font-size: 1.05rem; font-weight: 800; color: var(--text-main);
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            transition: color 0.2s;
-        }
-        .accordion-header:hover { color: var(--primary-blue); }
-        .accordion-header i { font-size: 1rem; color: var(--text-muted); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .accordion-header.active i { transform: rotate(180deg); color: var(--primary-blue); }
-        
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .accordion-content-inner { padding: 0 0 20px 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; font-weight: 600; }
-        .accordion-content-inner p { margin-bottom: 12px; }
-        .accordion-content-inner ul { margin-left: 20px; margin-bottom: 12px; }
-        .accordion-content-inner li { margin-bottom: 6px; }
-        
-        .faq-table { width: 100%; border-collapse: collapse; margin-top: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .faq-table th, .faq-table td { border: 1px solid var(--input-border); padding: 12px; text-align: left; font-size: 0.9rem; }
-        .faq-table th { background: var(--light-blue); color: var(--primary-blue); font-weight: 900; }
-        .faq-table td { background: #fff; color: var(--text-main); font-weight: 700; }
-
+        .footer-note { text-align: center; font-size: 0.85rem; color: #1a2b4c; font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(5px); }
 
         /* Estilo da coluna do AdSense */
         .ad-column { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
 
         /* ESTILOS DO POPUP (MODAL) DE MÉDIAS */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(8px); animation: fadeIn 0.3s; }
-        .modal-content { background: var(--card-bg); width: 95%; max-width: 800px; max-height: 90vh; border-radius: var(--border-radius-md); padding: 35px; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 43, 76, 0.8); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s; }
+        .modal-content { background: var(--card-bg); width: 95%; max-width: 800px; max-height: 90vh; border-radius: var(--border-radius-md); padding: 30px; overflow-y: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid var(--light-blue); padding-bottom: 20px; }
-        .modal-header h2 { color: var(--primary-blue); font-size: 1.5rem; font-weight: 900; }
-        .btn-close { background: none; border: none; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
-        .btn-close:hover { color: var(--red-text); transform: scale(1.1); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--light-blue); padding-bottom: 15px; }
+        .modal-header h2 { color: var(--primary-blue); font-size: 1.4rem; font-weight: 800; }
+        .btn-close { background: none; border: none; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
+        .btn-close:hover { color: var(--red-text); }
 
-        .modal-section-title { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 15px; }
+        .modal-section-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
         
-        /* ESTILO DOS CHECKBOXES PÍLULA */
-        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; background: #f8fafc; padding: 25px; border-radius: var(--border-radius-sm); border: 1px solid var(--input-border); }
-        .checkbox-item { display: flex; align-items: center; gap: 12px; font-size: 1rem; font-weight: 800; color: var(--text-main); cursor: pointer; user-select: none; }
-        .checkbox-item input[type="checkbox"] { display: none; }
-        .checkbox-item .custom-check { width: 55px; height: 32px; background-color: white; border: 2px solid var(--input-border); border-radius: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .checkbox-item .custom-check i { color: var(--primary-blue); font-size: 1.2rem; opacity: 0; transform: scale(0.5); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .checkbox-item input[type="checkbox"]:checked + .custom-check { border-color: var(--primary-blue); background: var(--light-blue); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
-        .checkbox-item input[type="checkbox"]:checked + .custom-check i { opacity: 1; transform: scale(1); }
+        /* ESTILO DOS CHECKBOXES PÍLULA (Custom) */
+        .checkbox-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 25px; 
+            background: var(--light-blue); 
+            padding: 20px; 
+            border-radius: var(--border-radius-sm); 
+        }
+        
+        .checkbox-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            cursor: pointer; 
+            user-select: none; 
+        }
 
-        .months-container { overflow-x: auto; margin-bottom: 30px; border-radius: 8px; border: 1px solid var(--input-border); }
+        .checkbox-item input[type="checkbox"] { 
+            display: none; 
+        }
+
+        .checkbox-item .custom-check { 
+            width: 55px; 
+            height: 30px; 
+            background-color: white; 
+            border: 2px solid var(--input-border); 
+            border-radius: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: all 0.2s; 
+        }
+
+        .checkbox-item .custom-check i { 
+            color: #e63946; 
+            font-size: 1.2rem; 
+            opacity: 0; 
+            transform: scale(0.5); 
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+
+        .checkbox-item input[type="checkbox"]:checked + .custom-check { 
+            border-color: #e63946; 
+            box-shadow: 0 4px 10px rgba(230, 57, 70, 0.15); 
+        }
+        
+        .checkbox-item input[type="checkbox"]:checked + .custom-check i { 
+            opacity: 1; 
+            transform: scale(1); 
+        }
+
+        .months-container { overflow-x: auto; margin-bottom: 25px; }
         .months-table { width: 100%; border-collapse: collapse; min-width: 500px; }
-        .months-table th, .months-table td { border-bottom: 1px solid var(--input-border); border-right: 1px solid var(--input-border); padding: 12px; text-align: left; }
-        .months-table th { background: var(--light-blue); color: var(--primary-blue); font-weight: 900; font-size: 0.9rem; }
-        .months-table td { background: #fff; }
-        .months-table td input { padding: 10px; font-size: 0.95rem; border-radius: 8px; width: 100%; }
+        .months-table th, .months-table td { border: 1px solid var(--input-border); padding: 10px; text-align: left; }
+        .months-table th { background: var(--purple-light); color: var(--purple-text); font-weight: 800; font-size: 0.85rem; }
+        .months-table td input { padding: 8px; font-size: 0.9rem; border-radius: 6px; width: 100%; }
 
-        .modal-footer { display: flex; gap: 15px; justify-content: flex-end; margin-top: 20px; }
-        .btn-outline { padding: 14px 24px; background: transparent; border: 2px solid var(--input-border); color: var(--text-muted); font-weight: 800; border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 1rem;}
-        .btn-outline:hover { background: #f1f5f9; color: var(--text-main); }
-        .btn-save { padding: 14px 28px; background: var(--blue-gradient); color: white; border: none; font-weight: 900; border-radius: 12px; cursor: pointer; box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3); font-size: 1rem; transition: 0.3s; }
-        .btn-save:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); }
+        .modal-footer { display: flex; gap: 15px; justify-content: flex-end; }
+        .btn-outline { padding: 12px 20px; background: transparent; border: 2px solid var(--input-border); color: var(--text-muted); font-weight: 700; border-radius: var(--border-radius-sm); cursor: pointer; }
+        .btn-save { padding: 12px 25px; background: var(--blue-gradient); color: white; border: none; font-weight: 800; border-radius: var(--border-radius-sm); cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
 
-        /* Responsividade */
-        @media (max-width: 950px) { .container { grid-template-columns: 1fr; } .header h1 { font-size: 2.2rem; } }
-        @media (max-width: 500px) { .grid-2, .extras-grid { grid-template-columns: 1fr; } .result-box, .net-box { flex-direction: column; text-align: center; gap: 10px; } .installments-grid { grid-template-columns: 1fr; } .modal-footer { flex-direction: column; } .btn-save, .btn-outline { width: 100%; text-align: center; } .card { padding: 20px; } }
+        /* Em telas menores que 950px, quebra o layout e o anúncio vai pra baixo */
+        @media (max-width: 950px) { .container { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
+        @media (max-width: 500px) { .grid-2, .extras-grid { grid-template-columns: 1fr; } .result-box, .net-box { flex-direction: column; text-align: center; gap: 10px; } .installments-grid { grid-template-columns: 1fr; } .modal-footer { flex-direction: column; } .btn-save, .btn-outline { width: 100%; text-align: center; } }
     </style>
 </head>
 <body>
@@ -271,7 +231,7 @@
             <div class="subtitle-badge">Simples, rápida e feita pra você!</div>
         </div>
 
-        <!-- MAIN COLUMN (Calculadora e FAQ) -->
+        <!-- MAIN COLUMN (Calculadora) -->
         <div class="main-column">
             
             <div class="card">
@@ -400,7 +360,7 @@
             <!-- RESULTADOS -->
             <div class="card" id="result-section">
                 <div class="card-header">
-                    <div class="icon-circle" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div class="icon-circle" style="background-color: #f7a528;"><i class="fa-solid fa-sack-dollar"></i></div>
                     <div>
                         <h2>Seu Resultado</h2>
                         <p>Confira os valores estimados do seu 13º salário.</p>
@@ -423,7 +383,7 @@
                     </div>
                 </div>
 
-                <!-- Desconto INSS -->
+                <!-- Desconto INSS com Texto Legal -->
                 <div class="discount-box">
                     <div class="discount-content">
                         <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto INSS</span>
@@ -432,8 +392,8 @@
                     <span class="value" id="res-inss">R$ 0,00</span>
                 </div>
                 
-                <!-- Desconto IRRF -->
-                <div class="discount-box" style="margin-bottom: 25px;">
+                <!-- Desconto IRRF com Texto Legal -->
+                <div class="discount-box" style="margin-bottom: 20px;">
                     <div class="discount-content">
                         <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto IRRF</span>
                         <span class="legal-note">Tributação exclusiva na fonte - Com Redução Lei 15.270/2025</span>
@@ -442,157 +402,13 @@
                 </div>
 
                 <div class="net-box">
-                    <span class="label"><div class="icon" style="background:var(--primary-blue); color:white; width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-right:5px; box-shadow: 0 4px 10px rgba(30,64,175,0.3);"><i class="fa-solid fa-equals"></i></div> Valor líquido total</span>
+                    <span class="label"><div class="icon" style="background:var(--primary-blue); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px;"><i class="fa-solid fa-equals"></i></div> Valor líquido total</span>
                     <span class="value" id="res-net">R$ 0,00</span>
                 </div>
 
                 <div class="info-alert">
                     <i class="fa-solid fa-scale-balanced"></i>
                     <p><strong>Cálculo Oficial 2026:</strong> Estimativa para empregado CLT. O INSS é separado da folha normal, calculando faixa a faixa. O IRRF é exclusivo na fonte, aplicando a nova redução da Lei nº 15.270/2025 e o desconto simplificado de R$ 607,20, caso mais vantajoso.</p>
-                </div>
-            </div>
-
-            <!-- NOVA SESSÃO: DÚVIDAS FREQUENTES (ACCORDION) -->
-            <div class="card" id="faq-section">
-                <div class="card-header">
-                    <div class="icon-circle" style="background: var(--light-blue); color: var(--primary-blue); box-shadow: none; border: 2px solid var(--primary-blue); transform: none;">
-                        <i class="fa-solid fa-circle-question"></i>
-                    </div>
-                    <div>
-                        <h2>Dúvidas Frequentes</h2>
-                        <p>Tudo o que você precisa saber sobre o 13º salário.</p>
-                    </div>
-                </div>
-
-                <p class="faq-intro">O décimo terceiro salário é um direito garantido aos trabalhadores que se enquadram na legislação, incluindo empregados com carteira assinada, trabalhadores domésticos e trabalhadores avulsos. A legislação também prevê o pagamento a aposentados e pensionistas do INSS.</p>
-
-                <div class="accordion">
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-header">1. Quem tem direito ao 13º? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p>Para cada mês entrar no cálculo do 13º salário, é necessário ter trabalhado 15 dias ou mais naquele mês. Se o trabalhador tiver trabalhado menos de 15 dias, aquele mês não gera 1/12 (um avo) de 13º.</p>
-                                <p>Assim, quem trabalhou durante todo o ano, em regra, terá direito a 12/12 avos, enquanto quem entrou ou saiu durante o ano poderá receber o 13º proporcional.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">2. Quando é pago o décimo terceiro? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p>A legislação estabelece duas parcelas:</p>
-                                <ul>
-                                    <li><strong>Primeira parcela:</strong> pode ser paga entre 1º de fevereiro e 30 de novembro.</li>
-                                    <li><strong>Segunda parcela:</strong> deve ser paga até 20 de dezembro.</li>
-                                </ul>
-                                <p><strong>E se a empresa quiser pagar de uma só vez?</strong><br>A empresa pode fazer o pagamento integral antecipadamente, desde que respeite o prazo legal (até 30 de novembro). Não é correto afirmar que parcela única deva ser paga somente em dezembro.</p>
-                                <p><strong>Posso receber a primeira parcela junto com as férias?</strong><br>Sim. O empregado pode solicitar o adiantamento por ocasião das férias, observadas as regras aplicáveis e o prazo para solicitação.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">3. Como calcular o 13º salário? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p>Para quem recebe salário fixo, a lógica básica é: <strong>Salário ÷ 12 × número de meses trabalhados</strong>.</p>
-                                <p>Exemplo: Se o salário é de R$ 3.000,00 e o empregado tem direito aos 12 meses:<br>R$ 3.000,00 ÷ 12 × 12 = R$ 3.000,00 de 13º bruto.</p>
-                                <p>Se tiver direito a apenas 8/12:<br>R$ 3.000,00 ÷ 12 × 8 = R$ 2.000,00 de 13º bruto.</p>
-                                <p>Importante: quando há remuneração variável, adicionais ou alterações salariais, é necessário observar a remuneração que integra o 13º (as médias).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">4. Como calcular as parcelas do 13º? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p><strong>Primeira Parcela:</strong> É, em regra, um adiantamento correspondente à metade do 13º devido. Exemplo: Para um salário de R$ 3.000,00 a primeira parcela será de R$ 1.500,00. Nesta parcela não há descontos de INSS e IRRF.</p>
-                                <p><strong>Segunda Parcela:</strong> Corresponde à diferença entre o valor total devido e o adiantamento já pago, subtraindo os descontos aplicáveis (INSS, IRRF).<br>Fórmula simplificada: 13º total devido − primeira parcela − descontos legais = segunda parcela líquida.</p>
-                                <p>O FGTS também incide sobre o 13º, mas é um encargo do empregador e não é descontado do trabalhador.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">5. Décimo terceiro: bruto x líquido <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p><strong>13º Bruto:</strong> É o valor do 13º antes de qualquer desconto.</p>
-                                <p><strong>13º Líquido:</strong> É o valor que efetivamente cai na sua conta, após descontos como INSS, IRRF e pensão alimentícia (se houver).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">6. Como funciona o 13º proporcional? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p>É devido quando o trabalhador não completa o ano inteiro de trabalho (entrou no meio do ano ou em caso de rescisão). Para cada mês com 15 dias ou mais trabalhados, contabiliza-se 1/12 do 13º.</p>
-                                <p>Exemplo de quem entrou em 10 de agosto: Agosto terá mais de 15 dias trabalhados e contará. Assim, receberá por agosto, setembro, outubro, novembro e dezembro (total: 5/12).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">7. Como fica quem recebe salário variável? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <p>Quem recebe comissões, horas extras, adicional noturno, etc., deve ter essas verbas consideradas no cálculo por meio da média mensal. O cálculo deve observar a legislação aplicável e a convenção ou acordo coletivo da categoria.</p>
-                                <p>Pode haver necessidade de ajuste ou complementação (uma terceira parcela) até o dia 10 de janeiro do ano seguinte, quando valores variáveis de dezembro forem totalmente apurados.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">8. Resumo dos prazos e regras <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                <table class="faq-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Situação / Encargo</th>
-                                            <th>Prazo / Regra</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1ª parcela</td>
-                                            <td>Até 30 de novembro</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2ª parcela</td>
-                                            <td>Até 20 de dezembro</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Parcela única</td>
-                                            <td>Pode ser paga antecipadamente (até 30/11)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mês contado</td>
-                                            <td>15 dias ou mais trabalhados no mês</td>
-                                        </tr>
-                                        <tr>
-                                            <td>INSS</td>
-                                            <td>Descontado na 2ª parcela (conforme tabela previdenciária)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>IRRF</td>
-                                            <td>Descontado na 2ª parcela (quando devido)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>FGTS</td>
-                                            <td>Devido pelo empregador (não é descontado de você)</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p style="margin-top: 10px; font-size: 0.85rem;">* Observação: convenções coletivas podem estabelecer condições mais favoráveis.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -604,6 +420,7 @@
 
         <!-- SIDE COLUMN (GOOGLE ADSENSE) -->
         <div class="ad-column">
+            <!-- Seu Anúncio Google Aqui -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:360px;height:800px"
                  data-ad-client="ca-pub-4731389594903841"
@@ -623,7 +440,7 @@
                 <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-muted); font-weight:600;">
+            <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted);">
                 Selecione as verbas que você recebeu durante o ano. O sistema criará os campos de acordo com a quantidade de meses trabalhados informada na tela inicial.
             </p>
 
@@ -794,7 +611,9 @@
                 inputMonths: document.getElementById('input-months')
             },
 
-            init() { this.bindEvents(); },
+            init() {
+                this.bindEvents();
+            },
 
             bindEvents() {
                 this.els.btnOpen.addEventListener('click', () => this.openModal());
@@ -830,7 +649,9 @@
                 this.els.modal.style.display = 'flex';
             },
 
-            closeModal() { this.els.modal.style.display = 'none'; },
+            closeModal() {
+                this.els.modal.style.display = 'none';
+            },
 
             renderTable() {
                 const months = parseInt(this.els.inputMonths.value, 10);
@@ -881,6 +702,7 @@
                     });
 
                     const average = totalSum / months;
+                    
                     const targetInputId = `input-${verba.value}`;
                     const targetInput = document.getElementById(targetInputId);
                     
@@ -926,10 +748,7 @@
                 resNet: document.getElementById('res-net')
             },
 
-            init() { 
-                this.bindEvents(); 
-                this.initAccordion();
-            },
+            init() { this.bindEvents(); },
 
             bindEvents() {
                 document.querySelectorAll('.money-input').forEach(input => {
@@ -947,27 +766,6 @@
                 this.els.form.addEventListener('submit', (e) => {
                     e.preventDefault();
                     this.processCalculation();
-                });
-            },
-
-            initAccordion() {
-                const accordionHeaders = document.querySelectorAll('.accordion-header');
-                accordionHeaders.forEach(header => {
-                    header.addEventListener('click', () => {
-                        const activeHeader = document.querySelector('.accordion-header.active');
-                        if(activeHeader && activeHeader !== header) {
-                            activeHeader.classList.remove('active');
-                            activeHeader.nextElementSibling.style.maxHeight = 0;
-                        }
-
-                        header.classList.toggle('active');
-                        const content = header.nextElementSibling;
-                        if (header.classList.contains('active')) {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                        } else {
-                            content.style.maxHeight = 0;
-                        }
-                    });
                 });
             },
 
@@ -1024,6 +822,7 @@
             }
         };
 
+        // Inicializa tanto a UI principal quanto o novo Modal
         document.addEventListener('DOMContentLoaded', () => { 
             UI.init(); 
             ModalMedias.init();
