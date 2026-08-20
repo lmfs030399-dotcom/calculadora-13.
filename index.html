@@ -24,7 +24,6 @@
     
     <style>
         :root {
-            --bg-page: #d7f2d7; 
             --text-main: #1a2b4c;
             --text-muted: #5e6e87;
             --primary-blue: #2c73eb;
@@ -49,12 +48,17 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
         
         body { 
-            background-color: var(--bg-page); 
+            /* Cor de fundo creme para combinar com a imagem caso a internet do usuário esteja lenta */
+            background-color: #fdf3e1; 
             color: var(--text-main); 
             display: flex; 
             justify-content: center; 
             padding: 40px 20px; 
+            
+            /* AQUI ESTÁ A IMAGEM DE FUNDO QUE VOCÊ PEDIU */
             background-image: url('image_443a2e.jpg'); 
+            
+            /* Configurações para a imagem ficar perfeita na tela */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -132,7 +136,7 @@
         .info-alert i { color: var(--purple-text); font-size: 1.5rem; margin-top: 5px; }
         .info-alert p { color: var(--purple-text); font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
         
-        .footer-note { text-align: center; font-size: 0.85rem; color: #1a2b4c; font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.7); padding: 10px; border-radius: 20px; backdrop-filter: blur(5px); }
+        .footer-note { text-align: center; font-size: 0.85rem; color: #1a2b4c; font-weight: 800; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(5px); }
 
         .ad-column { background-color: var(--light-blue); border: 2px dashed #a4c4f9; border-radius: var(--border-radius-lg); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .ad-icon { font-size: 4rem; margin-bottom: 20px; }
@@ -375,7 +379,7 @@
         </div>
     </div>
 
-    <!-- POPUP / MODAL DE MÉDIAS (Adicionado) -->
+    <!-- POPUP / MODAL DE MÉDIAS -->
     <div class="modal-overlay" id="modal-medias">
         <div class="modal-content">
             <div class="modal-header">
@@ -504,7 +508,7 @@
             }
         };
 
-        // NOVO: Lógica do Popup (Assistente de Médias)
+        // Lógica do Popup (Assistente de Médias)
         const ModalMedias = {
             els: {
                 modal: document.getElementById('modal-medias'),
@@ -515,7 +519,7 @@
                 checkboxes: document.querySelectorAll('#modal-checkboxes input[type="checkbox"]'),
                 tableContainer: document.getElementById('modal-table-container'),
                 titleStep2: document.getElementById('title-step-2'),
-                inputMonths: document.getElementById('input-months') // Pega da tela principal
+                inputMonths: document.getElementById('input-months')
             },
 
             init() {
@@ -528,12 +532,10 @@
                 this.els.btnCancel.addEventListener('click', () => this.closeModal());
                 this.els.btnSave.addEventListener('click', () => this.calculateAndApply());
 
-                // Atualiza a tabela sempre que marcar/desmarcar um checkbox
                 this.els.checkboxes.forEach(cb => {
                     cb.addEventListener('change', () => this.renderTable());
                 });
 
-                // Aplica máscara de moeda nos inputs dinâmicos gerados na tabela
                 this.els.tableContainer.addEventListener('input', (e) => {
                     if (e.target.classList.contains('money-dynamic')) {
                         let val = e.target.value.replace(/\D/g, '');
@@ -575,14 +577,12 @@
                 this.els.titleStep2.style.display = 'block';
                 this.els.tableContainer.style.display = 'block';
 
-                // Monta o cabeçalho
                 let html = '<table class="months-table"><thead><tr><th>Mês Ref.</th>';
                 selectedVerbas.forEach(verba => {
                     html += `<th>${verba.dataset.label} (R$)</th>`;
                 });
                 html += '</tr></thead><tbody>';
 
-                // Monta as linhas (quantidade de meses)
                 for (let i = 1; i <= months; i++) {
                     html += `<tr><td>Mês ${i}</td>`;
                     selectedVerbas.forEach(verba => {
@@ -604,7 +604,6 @@
                     return;
                 }
 
-                // Soma os valores e divide pelo número de meses trabalhados
                 selectedVerbas.forEach(verba => {
                     const inputs = this.els.tableContainer.querySelectorAll(`input[data-type="${verba.value}"]`);
                     let totalSum = 0;
@@ -615,7 +614,6 @@
 
                     const average = totalSum / months;
                     
-                    // Formata e insere no campo principal
                     const targetInputId = `input-${verba.value}`;
                     const targetInput = document.getElementById(targetInputId);
                     
@@ -624,7 +622,6 @@
                         avgFormatted = avgFormatted.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
                         targetInput.value = avgFormatted;
                         
-                        // Pisca o campo de verde indicando preenchimento automático
                         targetInput.style.backgroundColor = 'var(--green-light)';
                         targetInput.style.borderColor = 'var(--green-text)';
                         setTimeout(() => {
