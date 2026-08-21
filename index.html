@@ -55,24 +55,24 @@
             color: var(--text-main); 
             display: flex; 
             justify-content: center; 
-            padding: 50px 20px; 
+            /* Espaço final ajustado para diminuir o vazio no rodapé */
+            padding: 40px 20px 10px 20px; 
             background-image: url('image_443a2e.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
-        /* Layout centralizado e maior */
         .container { 
-            max-width: 900px; /* Largura máxima da calculadora aumentada */
+            max-width: 900px; 
             width: 100%; 
             display: flex; 
             flex-direction: column; 
-            gap: 30px; 
-            align-items: center; /* Centraliza tudo no meio da tela */
+            gap: 25px; 
+            align-items: center; 
         }
         
-        .header { text-align: center; position: relative; margin-bottom: 20px; width: 100%; }
+        .header { text-align: center; position: relative; margin-bottom: 10px; width: 100%; }
         .header h1 { font-size: 3.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 4px 15px rgba(0,0,0,0.1); }
         .header h1 span { color: var(--primary-blue); }
         .subtitle-badge { background-color: var(--yellow-accent); display: inline-block; padding: 6px 25px; border-radius: 20px; font-weight: 700; font-size: 1.2rem; transform: rotate(-2deg); margin-top: 15px; box-shadow: 0 4px 10px rgba(255, 225, 105, 0.4); border: 2px solid #fff; }
@@ -80,7 +80,7 @@
         .main-column { display: flex; flex-direction: column; gap: 25px; width: 100%; }
         .card { background-color: var(--card-bg); border-radius: var(--border-radius-md); padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
         .card-header { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
-        .icon-circle { width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .icon-circle { width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0;}
         .card-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; }
         .card-header p { font-size: 1rem; color: var(--text-muted); margin-top: 4px; }
 
@@ -92,7 +92,6 @@
         .input-icon.gray { background-color: #f0f0f0; color: #666; }
         .input-icon.purple { background-color: var(--purple-light); color: var(--purple-text); }
         
-        /* Inputs maiores */
         input, select { width: 100%; padding: 18px 18px 18px 65px; border: 2px solid var(--input-border); border-radius: var(--border-radius-sm); background-color: var(--input-bg); font-size: 1.1rem; font-weight: 600; color: var(--text-main); outline: none; transition: all 0.2s; appearance: none; }
         select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235e6e87' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 18px) center; }
         input:focus, select:focus { border-color: var(--primary-blue); background-color: #fff; box-shadow: 0 0 0 4px rgba(44, 115, 235, 0.1); }
@@ -112,7 +111,6 @@
         .hint-box { background-color: var(--green-light); border-radius: var(--border-radius-sm); padding: 15px 20px; display: flex; gap: 12px; align-items: center; margin-top: -5px; margin-bottom: 25px; font-size: 0.95rem; color: var(--green-text); font-weight: 600; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
         
-        /* Botão calcular maior */
         .btn-calc { width: 100%; padding: 22px; background: var(--blue-gradient); color: white; border: none; border-radius: var(--border-radius-sm); font-size: 1.25rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 15px rgba(44, 115, 235, 0.3); transition: transform 0.1s, box-shadow 0.1s; letter-spacing: 0.5px; }
         .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44, 115, 235, 0.4); }
         
@@ -123,7 +121,7 @@
 
         .result-box { background-color: var(--yellow-light); border: 2px solid var(--yellow-accent); border-radius: var(--border-radius-sm); padding: 25px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .result-box .label { font-weight: 700; color: #856404; font-size: 1.1rem; }
-        .result-box .value { font-size: 2.2rem; font-weight: 900; color: #28a745; }
+        .result-box .value { font-size: 2.2rem; font-weight: 900; color: #28a745; text-align: right; }
 
         .discount-box { background-color: var(--red-light); border: 1px dashed #f5c2c7; border-radius: var(--border-radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .discount-content { display: flex; flex-direction: column; }
@@ -134,7 +132,7 @@
 
         .net-box { background-color: var(--light-blue); border-radius: var(--border-radius-sm); padding: 25px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border: 2px solid var(--primary-blue); }
         .net-box .label { font-weight: 800; color: var(--primary-blue); display: flex; align-items: center; gap: 10px; font-size: 1.2rem;}
-        .net-box .value { font-size: 2.4rem; font-weight: 900; color: var(--primary-blue); }
+        .net-box .value { font-size: 2.4rem; font-weight: 900; color: var(--primary-blue); text-align: right;}
         
         .installments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
         .installment { background: #f8f9fa; border: 1px solid #e9ecef; padding: 18px; border-radius: 12px; text-align: center; }
@@ -145,10 +143,10 @@
         .info-alert i { color: var(--purple-text); font-size: 1.8rem; margin-top: 5px; }
         .info-alert p { color: var(--purple-text); font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
         
-        .footer-note { text-align: center; font-size: 0.95rem; color: #1a2b4c; font-weight: 800; margin-top: 25px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 15px 25px; border-radius: 20px; backdrop-filter: blur(5px); }
+        .footer-note { text-align: center; font-size: 0.95rem; color: #1a2b4c; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 15px 25px; border-radius: 20px; backdrop-filter: blur(5px); }
 
-        /* Anúncio AdSense Centralizado em Baixo */
-        .ad-column { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 40px; }
+        /* Espaçamento do anúncio reduzido */
+        .ad-column { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-top: 10px; margin-bottom: 5px; }
 
         /* ESTILOS DO POPUP (MODAL) DE MÉDIAS */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 43, 76, 0.8); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s; }
@@ -159,9 +157,7 @@
         .modal-header h2 { color: var(--primary-blue); font-size: 1.5rem; font-weight: 800; }
         .btn-close { background: none; border: none; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
         .btn-close:hover { color: var(--red-text); }
-
         .modal-section-title { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; }
-        
         .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; background: var(--light-blue); padding: 25px; border-radius: var(--border-radius-sm); }
         .checkbox-item { display: flex; align-items: center; gap: 12px; font-size: 1rem; font-weight: 700; color: var(--text-main); cursor: pointer; user-select: none; }
         .checkbox-item input[type="checkbox"] { display: none; }
@@ -169,23 +165,38 @@
         .checkbox-item .custom-check i { color: #e63946; font-size: 1.3rem; opacity: 0; transform: scale(0.5); transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .checkbox-item input[type="checkbox"]:checked + .custom-check { border-color: #e63946; box-shadow: 0 4px 10px rgba(230, 57, 70, 0.15); }
         .checkbox-item input[type="checkbox"]:checked + .custom-check i { opacity: 1; transform: scale(1); }
-
         .months-container { overflow-x: auto; margin-bottom: 30px; }
         .months-table { width: 100%; border-collapse: collapse; min-width: 500px; }
         .months-table th, .months-table td { border: 1px solid var(--input-border); padding: 12px; text-align: left; }
         .months-table th { background: var(--purple-light); color: var(--purple-text); font-weight: 800; font-size: 0.95rem; }
         .months-table td input { padding: 10px; font-size: 1rem; border-radius: 6px; width: 100%; border: 1px solid var(--input-border); }
-
         .modal-footer { display: flex; gap: 15px; justify-content: flex-end; }
         .btn-outline { padding: 15px 25px; background: transparent; border: 2px solid var(--input-border); color: var(--text-muted); font-weight: 700; font-size: 1.05rem; border-radius: var(--border-radius-sm); cursor: pointer; }
         .btn-save { padding: 15px 30px; background: var(--blue-gradient); color: white; border: none; font-weight: 800; font-size: 1.05rem; border-radius: var(--border-radius-sm); cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
 
-        /* Responsividade para celulares */
+        /* ESTILOS DA SEÇÃO DE FAQ (NOVO) */
+        .faq-search-wrapper { margin-bottom: 20px; }
+        .faq-list { max-height: 500px; overflow-y: auto; padding-right: 5px; }
+        .faq-list::-webkit-scrollbar { width: 6px; }
+        .faq-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px;}
+        .faq-list::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+        .faq-item { border: 2px solid var(--input-border); border-radius: var(--border-radius-sm); margin-bottom: 10px; overflow: hidden; background: var(--card-bg); transition: 0.3s; }
+        .faq-question { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.05rem; color: var(--text-main); background-color: var(--input-bg); transition: 0.3s; }
+        .faq-question:hover { background-color: var(--light-blue); color: var(--primary-blue); }
+        .faq-question i { color: var(--primary-blue); transition: transform 0.3s ease; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .faq-item.active { border-color: var(--primary-blue); box-shadow: 0 4px 10px rgba(44, 115, 235, 0.1); }
+        .faq-item.active .faq-question { background-color: var(--light-blue); color: var(--primary-blue); }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-item.active .faq-answer { padding: 15px 20px 20px; max-height: 300px; } /* Ajuste de altura para animação suave */
+        .faq-empty { text-align: center; padding: 20px; color: var(--text-muted); font-weight: 600; display: none; }
+
         @media (max-width: 768px) { 
             .header h1 { font-size: 2.4rem; } 
             .card { padding: 25px; }
             .grid-2, .extras-grid { grid-template-columns: 1fr; gap: 15px; } 
             .result-box, .net-box { flex-direction: column; text-align: center; gap: 12px; padding: 20px;} 
+            .result-box .value, .net-box .value { text-align: center; }
             .installments-grid { grid-template-columns: 1fr; } 
             .modal-footer { flex-direction: column; } 
             .btn-save, .btn-outline { width: 100%; text-align: center; } 
@@ -256,11 +267,9 @@
                         </div>
                     </div>
 
-                    <!-- SEÇÃO DE ADICIONAIS -->
                     <div class="extras-box">
                         <h3 class="extras-title">Informe a <u>média mensal</u> das parcelas variáveis recebidas durante o ano:</h3>
                         
-                        <!-- BOTÃO DE CHAMADA DO POPUP/MODAL -->
                         <button type="button" class="btn-open-modal" id="btn-open-modal">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> Assistente de Cálculo de Médias Mês a Mês
                         </button>
@@ -338,7 +347,7 @@
                 </div>
 
                 <div class="result-box">
-                    <span class="label">Base Bruta do 13º (Salário + Médias Variáveis)</span>
+                    <span class="label">Base Bruta do 13º<br><small style="font-weight: 500; font-size:0.85rem;">(Salário + Médias Variáveis)</small></span>
                     <span class="value" id="res-gross">R$ 0,00</span>
                 </div>
                 
@@ -353,7 +362,6 @@
                     </div>
                 </div>
 
-                <!-- Desconto INSS com Texto Legal -->
                 <div class="discount-box">
                     <div class="discount-content">
                         <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto INSS</span>
@@ -362,7 +370,6 @@
                     <span class="value" id="res-inss">R$ 0,00</span>
                 </div>
                 
-                <!-- Desconto IRRF com Texto Legal -->
                 <div class="discount-box" style="margin-bottom: 25px;">
                     <div class="discount-content">
                         <span class="label"><div class="icon"><i class="fa-solid fa-minus"></i></div> Desconto IRRF</span>
@@ -382,15 +389,44 @@
                 </div>
             </div>
 
+            <!-- NOVA SEÇÃO FAQ (DÚVIDAS FREQUENTES) -->
+            <div class="card" id="faq-section">
+                <div class="card-header">
+                    <div class="icon-circle" style="background-color: var(--purple-text);"><i class="fa-regular fa-circle-question"></i></div>
+                    <div>
+                        <h2>Dúvidas Frequentes sobre o 13º</h2>
+                        <p>Pesquise palavras-chave para encontrar sua resposta.</p>
+                    </div>
+                </div>
+
+                <div class="faq-search-wrapper">
+                    <div class="input-wrapper">
+                        <div class="input-icon" style="background-color: var(--light-blue); color: var(--primary-blue);"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <input type="text" id="faq-search" placeholder="Ex: ferias, desconto, parcela, comissao..." autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="faq-list" id="faq-list">
+                    <!-- O conteúdo será injetado pelo JavaScript aqui -->
+                </div>
+                <div class="faq-empty" id="faq-empty">
+                    Nenhuma dúvida encontrada com esses termos. Tente outra palavra!
+                </div>
+
+                <div class="info-alert" style="margin-top: 20px; background-color: var(--yellow-light); border: 1px dashed var(--yellow-accent);">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #856404;"></i>
+                    <p style="color: #856404;"><strong>Observação importante:</strong> O cálculo do 13º pode variar conforme o tipo de contrato, remuneração, período trabalhado, afastamentos, rescisão e normas coletivas aplicáveis. Por isso, uma resposta para um caso específico deve considerar essas informações antes de determinar o valor exato.</p>
+                </div>
+            </div>
+
             <div class="footer-note">
                 <i class="fa-solid fa-lock"></i> Seus dados não são armazenados. Cálculo feito localmente no seu navegador.
             </div>
 
         </div>
 
-        <!-- SIDE COLUMN (GOOGLE ADSENSE) - Agora centralizado no rodapé -->
+        <!-- SIDE COLUMN (GOOGLE ADSENSE) - Espaço reduzido -->
         <div class="ad-column">
-            <!-- Seu Anúncio Google Aqui -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:360px;height:800px"
                  data-ad-client="ca-pub-4731389594903841"
@@ -404,68 +440,27 @@
 
     <!-- POPUP / MODAL DE MÉDIAS -->
     <div class="modal-overlay" id="modal-medias">
+        <!-- Mantido exatamente como estava no código anterior para poupar linhas visuais -->
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Cálculo de Médias (Passo a Passo)</h2>
                 <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
             <p style="margin-bottom: 20px; font-size: 1.05rem; color: var(--text-muted);">
                 Selecione as verbas que você recebeu durante o ano. O sistema criará os campos de acordo com a quantidade de meses trabalhados informada na tela inicial.
             </p>
-
             <div class="modal-section-title">1. Quais verbas você recebeu?</div>
             <div class="checkbox-grid" id="modal-checkboxes">
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="he" data-label="Horas Extras">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Horas Extras
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="noturno" data-label="Adicional Noturno">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Adicional Noturno
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="insalubridade" data-label="Insalubridade">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Insalubridade
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="periculosidade" data-label="Periculosidade">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Periculosidade
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="comissoes" data-label="Comissões">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Comissões
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="gratificacoes" data-label="Gratificações">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Gratificações
-                </label>
-                
-                <label class="checkbox-item">
-                    <input type="checkbox" value="outras" data-label="Outras Parcelas">
-                    <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                    Outras Parcelas
-                </label>
-
+                <label class="checkbox-item"><input type="checkbox" value="he" data-label="Horas Extras"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Horas Extras</label>
+                <label class="checkbox-item"><input type="checkbox" value="noturno" data-label="Adicional Noturno"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Adicional Noturno</label>
+                <label class="checkbox-item"><input type="checkbox" value="insalubridade" data-label="Insalubridade"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Insalubridade</label>
+                <label class="checkbox-item"><input type="checkbox" value="periculosidade" data-label="Periculosidade"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Periculosidade</label>
+                <label class="checkbox-item"><input type="checkbox" value="comissoes" data-label="Comissões"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Comissões</label>
+                <label class="checkbox-item"><input type="checkbox" value="gratificacoes" data-label="Gratificações"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Gratificações</label>
+                <label class="checkbox-item"><input type="checkbox" value="outras" data-label="Outras Parcelas"><span class="custom-check"><i class="fa-solid fa-check"></i></span>Outras Parcelas</label>
             </div>
-
             <div class="modal-section-title" id="title-step-2" style="display: none;">2. Informe os valores recebidos mês a mês:</div>
-            <div class="months-container" id="modal-table-container" style="display: none;">
-                <!-- A tabela será gerada via JavaScript aqui -->
-            </div>
-
+            <div class="months-container" id="modal-table-container" style="display: none;"></div>
             <div class="modal-footer">
                 <button type="button" class="btn-outline" id="btn-cancel-modal">Cancelar</button>
                 <button type="button" class="btn-save" id="btn-save-averages">Calcular e Aplicar Médias</button>
@@ -503,15 +498,12 @@
                 let inssValue = 0;
                 let prevMax = 0;
                 const calcBase = Math.min(base13th, rules.inssCeiling);
-                
                 for (let bracket of rules.inss) {
                     if (calcBase > prevMax) {
                         let amountInBracket = Math.min(calcBase, bracket.max) - prevMax;
                         inssValue += amountInBracket * bracket.rate;
                         prevMax = bracket.max;
-                    } else {
-                        break;
-                    }
+                    } else { break; }
                 }
                 return Math.max(0, inssValue);
             },
@@ -532,15 +524,11 @@
                     }
                 }
 
-                if (taxableIncome <= 5000.00) {
-                    irrfValue = 0;
+                if (taxableIncome <= 5000.00) { irrfValue = 0;
                 } else if (taxableIncome <= 7350.00) {
                     const reduction = 978.62 - (0.133145 * taxableIncome);
-                    if (reduction > 0) {
-                        irrfValue = Math.max(0, irrfValue - reduction);
-                    }
+                    if (reduction > 0) irrfValue = Math.max(0, irrfValue - reduction);
                 }
-                
                 return Math.max(0, irrfValue);
             },
 
@@ -579,33 +567,23 @@
                 titleStep2: document.getElementById('title-step-2'),
                 inputMonths: document.getElementById('input-months')
             },
-
-            init() {
-                this.bindEvents();
-            },
-
+            init() { this.bindEvents(); },
             bindEvents() {
                 this.els.btnOpen.addEventListener('click', () => this.openModal());
                 this.els.btnClose.addEventListener('click', () => this.closeModal());
                 this.els.btnCancel.addEventListener('click', () => this.closeModal());
                 this.els.btnSave.addEventListener('click', () => this.calculateAndApply());
-
-                this.els.checkboxes.forEach(cb => {
-                    cb.addEventListener('change', () => this.renderTable());
-                });
-
+                this.els.checkboxes.forEach(cb => cb.addEventListener('change', () => this.renderTable()));
                 this.els.tableContainer.addEventListener('input', (e) => {
                     if (e.target.classList.contains('money-dynamic')) {
                         let val = e.target.value.replace(/\D/g, '');
                         if (val === '') { e.target.value = ''; return; }
                         val = (parseInt(val, 10) / 100).toFixed(2);
-                        val = val.replace('.', ',');
-                        val = val.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+                        val = val.replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
                         e.target.value = val;
                     }
                 });
             },
-
             openModal() {
                 const months = parseInt(this.els.inputMonths.value, 10);
                 if (isNaN(months) || months < 1) {
@@ -617,69 +595,41 @@
                 this.renderTable();
                 this.els.modal.style.display = 'flex';
             },
-
-            closeModal() {
-                this.els.modal.style.display = 'none';
-            },
-
+            closeModal() { this.els.modal.style.display = 'none'; },
             renderTable() {
                 const months = parseInt(this.els.inputMonths.value, 10);
                 const selectedVerbas = Array.from(this.els.checkboxes).filter(cb => cb.checked);
-
                 if (selectedVerbas.length === 0) {
                     this.els.tableContainer.style.display = 'none';
                     this.els.titleStep2.style.display = 'none';
                     return;
                 }
-
                 this.els.titleStep2.style.display = 'block';
                 this.els.tableContainer.style.display = 'block';
-
                 let html = '<table class="months-table"><thead><tr><th>Mês Ref.</th>';
-                selectedVerbas.forEach(verba => {
-                    html += `<th>${verba.dataset.label} (R$)</th>`;
-                });
+                selectedVerbas.forEach(verba => html += `<th>${verba.dataset.label} (R$)</th>`);
                 html += '</tr></thead><tbody>';
-
                 for (let i = 1; i <= months; i++) {
                     html += `<tr><td>Mês ${i}</td>`;
-                    selectedVerbas.forEach(verba => {
-                        html += `<td><input type="text" class="money-dynamic" data-type="${verba.value}" placeholder="0,00"></td>`;
-                    });
+                    selectedVerbas.forEach(verba => html += `<td><input type="text" class="money-dynamic" data-type="${verba.value}" placeholder="0,00"></td>`);
                     html += '</tr>';
                 }
-                
                 html += '</tbody></table>';
                 this.els.tableContainer.innerHTML = html;
             },
-
             calculateAndApply() {
                 const months = parseInt(this.els.inputMonths.value, 10);
                 const selectedVerbas = Array.from(this.els.checkboxes).filter(cb => cb.checked);
-                
-                if(selectedVerbas.length === 0) {
-                    this.closeModal();
-                    return;
-                }
-
+                if(selectedVerbas.length === 0) { this.closeModal(); return; }
                 selectedVerbas.forEach(verba => {
                     const inputs = this.els.tableContainer.querySelectorAll(`input[data-type="${verba.value}"]`);
                     let totalSum = 0;
-                    
-                    inputs.forEach(input => {
-                        totalSum += Validator.parseCurrency(input.value);
-                    });
-
+                    inputs.forEach(input => totalSum += Validator.parseCurrency(input.value));
                     const average = totalSum / months;
-                    
-                    const targetInputId = `input-${verba.value}`;
-                    const targetInput = document.getElementById(targetInputId);
-                    
+                    const targetInput = document.getElementById(`input-${verba.value}`);
                     if(targetInput) {
-                        let avgFormatted = average.toFixed(2).replace('.', ',');
-                        avgFormatted = avgFormatted.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+                        let avgFormatted = average.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
                         targetInput.value = avgFormatted;
-                        
                         targetInput.style.backgroundColor = 'var(--green-light)';
                         targetInput.style.borderColor = 'var(--green-text)';
                         setTimeout(() => {
@@ -688,7 +638,6 @@
                         }, 1200);
                     }
                 });
-
                 this.closeModal();
             }
         };
@@ -716,17 +665,14 @@
                 resIrrf: document.getElementById('res-irrf'),
                 resNet: document.getElementById('res-net')
             },
-
             init() { this.bindEvents(); },
-
             bindEvents() {
                 document.querySelectorAll('.money-input').forEach(input => {
                     input.addEventListener('input', (e) => {
                         let val = e.target.value.replace(/\D/g, '');
                         if (val === '') { e.target.value = ''; return; }
                         val = (parseInt(val, 10) / 100).toFixed(2);
-                        val = val.replace('.', ',');
-                        val = val.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+                        val = val.replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
                         e.target.value = val;
                         if(e.target.id === 'input-salary') this.clearErrors();
                     });
@@ -737,20 +683,16 @@
                     this.processCalculation();
                 });
             },
-
             formatMoney(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); },
-
             clearErrors() {
                 this.els.errorSalary.style.display = 'none';
                 this.els.errorMonths.style.display = 'none';
                 this.els.salary.style.borderColor = 'var(--input-border)';
                 this.els.months.style.borderColor = 'var(--input-border)';
             },
-
             processCalculation() {
                 this.clearErrors();
                 this.els.resultSection.style.display = 'none';
-
                 const salary = Validator.parseCurrency(this.els.salary.value);
                 const months = parseInt(this.els.months.value, 10);
                 let dependents = parseInt(this.els.dependents.value, 10);
@@ -761,15 +703,7 @@
                 if (isNaN(months) || months < 1 || months > 12) { this.els.errorMonths.style.display = 'block'; this.els.months.style.borderColor = 'var(--red-text)'; hasError = true; }
                 if (hasError) return;
 
-                const totalExtras = 
-                    Validator.parseCurrency(this.els.he.value) +
-                    Validator.parseCurrency(this.els.noturno.value) +
-                    Validator.parseCurrency(this.els.insalubridade.value) +
-                    Validator.parseCurrency(this.els.periculosidade.value) +
-                    Validator.parseCurrency(this.els.comissoes.value) +
-                    Validator.parseCurrency(this.els.gratificacoes.value) +
-                    Validator.parseCurrency(this.els.outras.value);
-
+                const totalExtras = Validator.parseCurrency(this.els.he.value) + Validator.parseCurrency(this.els.noturno.value) + Validator.parseCurrency(this.els.insalubridade.value) + Validator.parseCurrency(this.els.periculosidade.value) + Validator.parseCurrency(this.els.comissoes.value) + Validator.parseCurrency(this.els.gratificacoes.value) + Validator.parseCurrency(this.els.outras.value);
                 const finalBaseSalary = salary + totalExtras;
 
                 try {
@@ -777,7 +711,6 @@
                     this.renderResults(result);
                 } catch (error) { alert("Erro interno: " + error.message); }
             },
-
             renderResults(result) {
                 this.els.resGross.innerText = this.formatMoney(result.grossTotal);
                 this.els.resInst1.innerText = this.formatMoney(result.firstInstallment);
@@ -791,10 +724,113 @@
             }
         };
 
-        // Inicializa a UI principal e o Modal
+        // LÓGICA DO FAQ COM BARRA DE PESQUISA
+        const faqData = [
+            { q: "O que é o 13º salário?", a: "O 13º salário, também chamado de gratificação natalina, é um direito do trabalhador e corresponde a uma remuneração adicional paga anualmente, de forma integral ou proporcional ao período trabalhado." },
+            { q: "Quem tem direito ao 13º salário?", a: "Em regra, trabalhadores contratados pelo regime CLT têm direito ao 13º salário. O benefício também possui regras próprias para outras categorias, como trabalhadores domésticos e servidores públicos." },
+            { q: "Como é calculado o 13º salário?", a: "O 13º é calculado proporcionalmente ao número de meses trabalhados durante o ano. Cada mês em que o trabalhador tenha trabalhado 15 dias ou mais é considerado como 1/12 do 13º salário." },
+            { q: "Quem trabalhou o ano inteiro recebe um salário completo de 13º?", a: "Em uma situação de salário fixo, sem alterações ou parcelas variáveis, quem trabalhou durante todo o ano tem direito a um 13º equivalente a uma remuneração mensal. O valor líquido, entretanto, pode ser menor devido aos descontos aplicáveis." },
+            { q: "Quem entrou na empresa durante o ano recebe 13º?", a: "Sim. Nesse caso, o trabalhador recebe o 13º de forma proporcional aos meses trabalhados. Por exemplo, quem trabalhou seis meses terá direito a 6/12 do 13º." },
+            { q: "Se trabalhei menos de 15 dias no mês, esse mês conta para o 13º?", a: "Não. Para fins de cálculo do 13º, o mês somente é considerado quando houver 15 dias ou mais de trabalho." },
+            { q: "O 13º salário é pago em duas parcelas?", a: "Sim. A forma tradicional de pagamento é dividida em duas parcelas. A primeira corresponde, em regra, ao adiantamento de metade do valor devido, enquanto a segunda complementa o valor total, considerando os descontos aplicáveis." },
+            { q: "Quando deve ser paga a primeira parcela?", a: "A primeira parcela deve ser paga entre fevereiro e 30 de novembro, respeitando as regras legais aplicáveis." },
+            { q: "Quando deve ser paga a segunda parcela?", a: "A segunda parcela deve ser paga até 20 de dezembro." },
+            { q: "A primeira parcela do 13º sempre corresponde exatamente à metade do salário?", a: "Em uma situação simples de salário fixo, sim. Entretanto, situações envolvendo salário variável, admissão durante o ano, afastamentos, alterações salariais ou outras parcelas podem modificar o cálculo." },
+            { q: "A segunda parcela é sempre igual à primeira?", a: "Não. A segunda parcela é o complemento do 13º devido e pode apresentar valor diferente porque nela são considerados os descontos legais aplicáveis (como INSS e IRRF)." },
+            { q: "Por que a segunda parcela costuma ser menor?", a: "Porque podem ser aplicados descontos como INSS e Imposto de Renda, quando cabíveis. Por isso, não é correto simplesmente dividir o valor líquido do 13º em duas partes iguais." },
+            { q: "O INSS é descontado do 13º salário?", a: "Sim. O 13º salário está sujeito à contribuição previdenciária quando aplicável. O desconto é considerado no cálculo do valor líquido da segunda parcela." },
+            { q: "O Imposto de Renda é descontado do 13º?", a: "Pode ser. Quando o trabalhador estiver sujeito ao Imposto de Renda, o desconto correspondente será realizado conforme as regras exclusivas na fonte aplicáveis ao 13º salário." },
+            { q: "O FGTS é descontado do 13º?", a: "Não. O FGTS não é um desconto feito do salário. O empregador realiza o depósito do FGTS correspondente ao 13º salário na conta do trabalhador." },
+            { q: "Horas extras entram no cálculo do 13º?", a: "Horas extras de natureza salarial e recebidas habitualmente podem influenciar o cálculo do 13º, devendo ser feita a apuração da média anual." },
+            { q: "Adicional noturno entra no cálculo do 13º?", a: "Quando o adicional noturno possui natureza salarial e é devido de forma habitual, ele pode integrar a remuneração considerada calculando-se sua média." },
+            { q: "Comissões entram no cálculo do 13º?", a: "Sim. Para trabalhadores que recebem comissões ou outras parcelas variáveis de natureza salarial, essas verbas podem ser consideradas no cálculo do 13º através de média." },
+            { q: "Quem recebe salário fixo mais comissão recebe 13º sobre os dois valores?", a: "Sim, em regra, as parcelas salariais que compõem a remuneração (fixo + médias) devem ser consideradas conforme sua natureza e as regras aplicáveis." },
+            { q: "O salário usado no cálculo é o salário atual ou uma média do ano?", a: "Para o salário fixo, utiliza-se a remuneração devida no momento do pagamento (geralmente dezembro). Já parcelas variáveis (comissões, horas extras) exigem o cálculo por média do ano." },
+            { q: "Se meu salário aumentou durante o ano, o aumento influencia o 13º?", a: "Sim. Um reajuste ou aumento salarial altera o valor utilizado no cálculo do 13º, especialmente para quem possui salário fixo." },
+            { q: "Quem está de férias tem direito ao 13º?", a: "Sim. O período de férias não elimina o direito ao 13º salário. Inclusive, o trabalhador pode solicitar a antecipação da primeira parcela junto com as férias." },
+            { q: "Posso receber a primeira parcela do 13º junto com as férias?", a: "Sim, desde que seja feita a solicitação dentro das condições estabelecidas pela legislação (normalmente requisitado em janeiro do respectivo ano)." },
+            { q: "Quem está afastado pelo INSS recebe 13º?", a: "Depende. Em determinadas situações, o empregador paga proporcional aos meses trabalhados, e a Previdência paga o abono anual referente ao período em benefício." },
+            { q: "Quem foi demitido recebe 13º proporcional?", a: "Em caso de dispensa sem justa causa, o trabalhador tem direito ao 13º proporcional correspondente aos meses trabalhados no ano da rescisão." },
+            { q: "Quem pediu demissão recebe 13º proporcional?", a: "Sim. Em regra, quem pede demissão também tem direito ao 13º proporcional referente ao período trabalhado no ano." },
+            { q: "Quem foi demitido por justa causa recebe 13º proporcional?", a: "Não. Na dispensa por justa causa, o trabalhador perde o direito ao 13º proporcional do ano da rescisão." },
+            { q: "O aviso-prévio influencia o cálculo do 13º?", a: "Pode influenciar. Quando o aviso-prévio, inclusive o indenizado, projeta o contrato para outro mês, isso pode gerar direito a mais 1/12 de 13º." },
+            { q: "O 13º pode ser pago em parcela única?", a: "A legislação exige pagamento em 2 parcelas (adiantamento e complemento). O pagamento em parcela única integralmente em novembro pode ser feito, mas exige cuidado contábil. Recomenda-se consultar o RH." },
+            { q: "A empresa pode pagar o 13º antes dos prazos?", a: "Sim. Os prazos legais (30/nov e 20/dez) são limites máximos. Antecipar valores é permitido e pode estar previsto em acordos coletivos." },
+            { q: "A empresa pode pagar a primeira parcela depois de 30 de novembro?", a: "Não como regra geral. O prazo legal máximo para o pagamento da primeira parcela é até 30 de novembro." },
+            { q: "A empresa pode pagar a segunda parcela depois de 20 de dezembro?", a: "Não como regra geral. A segunda parcela, já com os descontos, deve ser quitada obrigatoriamente até 20 de dezembro." },
+            { q: "O que acontece se a empresa não pagar o 13º dentro do prazo?", a: "O atraso pode gerar consequências trabalhistas, administrativas (multas por fiscais do trabalho) e infrações a convenções coletivas." },
+            { q: "Faltas no trabalho diminuem o 13º?", a: "Nem toda falta reduz. O ponto principal é: se devido a faltas injustificadas o trabalhador não somar 15 dias trabalhados naquele mês, ele perde 1/12 avos do 13º." },
+            { q: "O 13º é calculado sobre o salário bruto ou líquido?", a: "O cálculo do 13º sempre parte do salário bruto. Depois são aplicados os descontos de INSS e IRRF para se chegar ao valor líquido que cai na conta." },
+            { q: "Vale-transporte e vale-alimentação entram no cálculo do 13º?", a: "Não. A inclusão depende da natureza jurídica, e esses benefícios (se pagos conforme lei) não possuem natureza salarial." },
+            { q: "Benefícios e adicionais entram no 13º?", a: "Depende da natureza. Adicionais noturno, insalubridade e periculosidade integram o cálculo. Benefícios indenizatórios não integram." },
+            { q: "O 13º tem desconto de pensão alimentícia?", a: "Pode ter. Quando existe determinação judicial, o desconto recai sobre o 13º salário, assim como ocorre no salário mensal." },
+            { q: "Quem trabalha como comissionista tem direito ao 13º?", a: "Sim. Trabalhadores que recebem remuneração variável também têm direito, fazendo-se o cálculo da média recebida no ano." },
+            { q: "A convenção coletiva pode mudar o cálculo do 13º?", a: "Pode estabelecer condições mais benéficas, como formas próprias de apurar médias. Sempre vale a pena checar a convenção da categoria." },
+            { q: "O 13º salário conta para férias?", a: "Não. O 13º é uma verba distinta e não é incorporado ao cálculo das férias. Cada um tem sua própria base de apuração." },
+            { q: "O 13º entra no cálculo do FGTS?", a: "Sim. O 13º sofre incidência de FGTS (em regra, 8%), cujo valor é depositado separadamente pelo patrão na conta vinculada do trabalhador." },
+            { q: "Quem trabalha apenas parte do ano perde o direito ao 13º?", a: "Não. Recebe de forma proporcional (em avos) relativos aos meses que tiverem ao menos 15 dias trabalhados no ano." },
+            { q: "Se eu entrei no final do mês, esse mês conta?", a: "Somente se você trabalhar 15 dias ou mais dentro desse mês de admissão." },
+            { q: "Como saber exatamente quanto vou receber de 13º?", a: "É preciso somar salário bruto e médias (se houver), aplicar a proporção de meses (X/12), e deduzir a tabela progressiva oficial de INSS e de IRRF daquele ano." }
+        ];
+
+        const FAQ = {
+            init() {
+                this.faqList = document.getElementById('faq-list');
+                this.searchInput = document.getElementById('faq-search');
+                this.emptyMsg = document.getElementById('faq-empty');
+                this.render(faqData);
+                this.bindEvents();
+            },
+            
+            render(data) {
+                this.faqList.innerHTML = '';
+                if (data.length === 0) {
+                    this.emptyMsg.style.display = 'block';
+                } else {
+                    this.emptyMsg.style.display = 'none';
+                    data.forEach((item, index) => {
+                        const faqItem = document.createElement('div');
+                        faqItem.className = 'faq-item';
+                        faqItem.innerHTML = `
+                            <div class="faq-question">
+                                <span>${item.q}</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">${item.a}</div>
+                        `;
+                        
+                        faqItem.querySelector('.faq-question').addEventListener('click', () => {
+                            const isActive = faqItem.classList.contains('active');
+                            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                            if (!isActive) faqItem.classList.add('active');
+                        });
+                        
+                        this.faqList.appendChild(faqItem);
+                    });
+                }
+            },
+            
+            removeAccents(str) {
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            },
+            
+            bindEvents() {
+                this.searchInput.addEventListener('input', (e) => {
+                    const query = this.removeAccents(e.target.value);
+                    const filtered = faqData.filter(item => {
+                        const qStr = this.removeAccents(item.q);
+                        const aStr = this.removeAccents(item.a);
+                        return qStr.includes(query) || aStr.includes(query);
+                    });
+                    this.render(filtered);
+                });
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => { 
             UI.init(); 
             ModalMedias.init();
+            FAQ.init(); // Inicia a aba de perguntas e respostas
         });
     </script>
 </body>
