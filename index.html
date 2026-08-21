@@ -55,7 +55,6 @@
             color: var(--text-main); 
             display: flex; 
             justify-content: center; 
-            /* Espaço final ajustado para diminuir o vazio no rodapé */
             padding: 40px 20px 10px 20px; 
             background-image: url('image_443a2e.jpg'); 
             background-size: cover;
@@ -145,7 +144,6 @@
         
         .footer-note { text-align: center; font-size: 0.95rem; color: #1a2b4c; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); padding: 15px 25px; border-radius: 20px; backdrop-filter: blur(5px); }
 
-        /* Espaçamento do anúncio reduzido */
         .ad-column { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-top: 10px; margin-bottom: 5px; }
 
         /* ESTILOS DO POPUP (MODAL) DE MÉDIAS */
@@ -174,7 +172,7 @@
         .btn-outline { padding: 15px 25px; background: transparent; border: 2px solid var(--input-border); color: var(--text-muted); font-weight: 700; font-size: 1.05rem; border-radius: var(--border-radius-sm); cursor: pointer; }
         .btn-save { padding: 15px 30px; background: var(--blue-gradient); color: white; border: none; font-weight: 800; font-size: 1.05rem; border-radius: var(--border-radius-sm); cursor: pointer; box-shadow: 0 4px 10px rgba(44, 115, 235, 0.3); }
 
-        /* ESTILOS DA SEÇÃO DE FAQ (NOVO) */
+        /* ESTILOS DA SEÇÃO DE FAQ */
         .faq-search-wrapper { margin-bottom: 20px; }
         .faq-list { max-height: 500px; overflow-y: auto; padding-right: 5px; }
         .faq-list::-webkit-scrollbar { width: 6px; }
@@ -188,7 +186,7 @@
         .faq-item.active { border-color: var(--primary-blue); box-shadow: 0 4px 10px rgba(44, 115, 235, 0.1); }
         .faq-item.active .faq-question { background-color: var(--light-blue); color: var(--primary-blue); }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
-        .faq-item.active .faq-answer { padding: 15px 20px 20px; max-height: 300px; } /* Ajuste de altura para animação suave */
+        .faq-item.active .faq-answer { padding: 15px 20px 20px; max-height: 500px; } /* Altura maior para respostas grandes */
         .faq-empty { text-align: center; padding: 20px; color: var(--text-muted); font-weight: 600; display: none; }
 
         @media (max-width: 768px) { 
@@ -389,20 +387,20 @@
                 </div>
             </div>
 
-            <!-- NOVA SEÇÃO FAQ (DÚVIDAS FREQUENTES) -->
+            <!-- SEÇÃO FAQ (DÚVIDAS FREQUENTES) -->
             <div class="card" id="faq-section">
                 <div class="card-header">
                     <div class="icon-circle" style="background-color: var(--purple-text);"><i class="fa-regular fa-circle-question"></i></div>
                     <div>
                         <h2>Dúvidas Frequentes sobre o 13º</h2>
-                        <p>Pesquise palavras-chave para encontrar sua resposta.</p>
+                        <p>Digite as palavras-chave da sua dúvida.</p>
                     </div>
                 </div>
 
                 <div class="faq-search-wrapper">
                     <div class="input-wrapper">
                         <div class="input-icon" style="background-color: var(--light-blue); color: var(--primary-blue);"><i class="fa-solid fa-magnifying-glass"></i></div>
-                        <input type="text" id="faq-search" placeholder="Ex: ferias, desconto, parcela, comissao..." autocomplete="off">
+                        <input type="text" id="faq-search" placeholder="Ex: demissao justa causa, ferias primeira parcela..." autocomplete="off">
                     </div>
                 </div>
 
@@ -410,7 +408,7 @@
                     <!-- O conteúdo será injetado pelo JavaScript aqui -->
                 </div>
                 <div class="faq-empty" id="faq-empty">
-                    Nenhuma dúvida encontrada com esses termos. Tente outra palavra!
+                    Nenhuma dúvida encontrada com esses termos. Tente outras palavras!
                 </div>
 
                 <div class="info-alert" style="margin-top: 20px; background-color: var(--yellow-light); border: 1px dashed var(--yellow-accent);">
@@ -425,7 +423,7 @@
 
         </div>
 
-        <!-- SIDE COLUMN (GOOGLE ADSENSE) - Espaço reduzido -->
+        <!-- SIDE COLUMN (GOOGLE ADSENSE) -->
         <div class="ad-column">
             <ins class="adsbygoogle"
                  style="display:inline-block;width:360px;height:800px"
@@ -440,7 +438,6 @@
 
     <!-- POPUP / MODAL DE MÉDIAS -->
     <div class="modal-overlay" id="modal-medias">
-        <!-- Mantido exatamente como estava no código anterior para poupar linhas visuais -->
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Cálculo de Médias (Passo a Passo)</h2>
@@ -724,53 +721,53 @@
             }
         };
 
-        // LÓGICA DO FAQ COM BARRA DE PESQUISA
+        // LÓGICA INTELIGENTE DO FAQ COM PESQUISA POR TOKENS (PALAVRAS-CHAVE INDEPENDENTES DA ORDEM)
         const faqData = [
             { q: "O que é o 13º salário?", a: "O 13º salário, também chamado de gratificação natalina, é um direito do trabalhador e corresponde a uma remuneração adicional paga anualmente, de forma integral ou proporcional ao período trabalhado." },
             { q: "Quem tem direito ao 13º salário?", a: "Em regra, trabalhadores contratados pelo regime CLT têm direito ao 13º salário. O benefício também possui regras próprias para outras categorias, como trabalhadores domésticos e servidores públicos." },
             { q: "Como é calculado o 13º salário?", a: "O 13º é calculado proporcionalmente ao número de meses trabalhados durante o ano. Cada mês em que o trabalhador tenha trabalhado 15 dias ou mais é considerado como 1/12 do 13º salário." },
-            { q: "Quem trabalhou o ano inteiro recebe um salário completo de 13º?", a: "Em uma situação de salário fixo, sem alterações ou parcelas variáveis, quem trabalhou durante todo o ano tem direito a um 13º equivalente a uma remuneração mensal. O valor líquido, entretanto, pode ser menor devido aos descontos aplicáveis." },
-            { q: "Quem entrou na empresa durante o ano recebe 13º?", a: "Sim. Nesse caso, o trabalhador recebe o 13º de forma proporcional aos meses trabalhados. Por exemplo, quem trabalhou seis meses terá direito a 6/12 do 13º." },
+            { q: "Quem trabalhou o ano inteiro recebe um salário completo de 13º?", a: "Em uma situação de salário fixo, sem alterações ou parcelas variáveis que modifiquem a base de cálculo, quem trabalhou durante todo o ano tem direito a um 13º equivalente a uma remuneração mensal. O valor líquido, entretanto, pode ser menor devido aos descontos aplicáveis." },
+            { q: "Quem entrou na empresa durante o ano recebe 13º?", a: "Sim. Nesse caso, o trabalhador recebe o 13º de forma proporcional aos meses trabalhados. Por exemplo, quem trabalhou seis meses, considerando os critérios legais para contagem dos meses, terá direito a 6/12 do 13º." },
             { q: "Se trabalhei menos de 15 dias no mês, esse mês conta para o 13º?", a: "Não. Para fins de cálculo do 13º, o mês somente é considerado quando houver 15 dias ou mais de trabalho." },
             { q: "O 13º salário é pago em duas parcelas?", a: "Sim. A forma tradicional de pagamento é dividida em duas parcelas. A primeira corresponde, em regra, ao adiantamento de metade do valor devido, enquanto a segunda complementa o valor total, considerando os descontos aplicáveis." },
             { q: "Quando deve ser paga a primeira parcela?", a: "A primeira parcela deve ser paga entre fevereiro e 30 de novembro, respeitando as regras legais aplicáveis." },
             { q: "Quando deve ser paga a segunda parcela?", a: "A segunda parcela deve ser paga até 20 de dezembro." },
-            { q: "A primeira parcela do 13º sempre corresponde exatamente à metade do salário?", a: "Em uma situação simples de salário fixo, sim. Entretanto, situações envolvendo salário variável, admissão durante o ano, afastamentos, alterações salariais ou outras parcelas podem modificar o cálculo." },
-            { q: "A segunda parcela é sempre igual à primeira?", a: "Não. A segunda parcela é o complemento do 13º devido e pode apresentar valor diferente porque nela são considerados os descontos legais aplicáveis (como INSS e IRRF)." },
-            { q: "Por que a segunda parcela costuma ser menor?", a: "Porque podem ser aplicados descontos como INSS e Imposto de Renda, quando cabíveis. Por isso, não é correto simplesmente dividir o valor líquido do 13º em duas partes iguais." },
-            { q: "O INSS é descontado do 13º salário?", a: "Sim. O 13º salário está sujeito à contribuição previdenciária quando aplicável. O desconto é considerado no cálculo do valor líquido da segunda parcela." },
-            { q: "O Imposto de Renda é descontado do 13º?", a: "Pode ser. Quando o trabalhador estiver sujeito ao Imposto de Renda, o desconto correspondente será realizado conforme as regras exclusivas na fonte aplicáveis ao 13º salário." },
-            { q: "O FGTS é descontado do 13º?", a: "Não. O FGTS não é um desconto feito do salário. O empregador realiza o depósito do FGTS correspondente ao 13º salário na conta do trabalhador." },
-            { q: "Horas extras entram no cálculo do 13º?", a: "Horas extras de natureza salarial e recebidas habitualmente podem influenciar o cálculo do 13º, devendo ser feita a apuração da média anual." },
-            { q: "Adicional noturno entra no cálculo do 13º?", a: "Quando o adicional noturno possui natureza salarial e é devido de forma habitual, ele pode integrar a remuneração considerada calculando-se sua média." },
-            { q: "Comissões entram no cálculo do 13º?", a: "Sim. Para trabalhadores que recebem comissões ou outras parcelas variáveis de natureza salarial, essas verbas podem ser consideradas no cálculo do 13º através de média." },
-            { q: "Quem recebe salário fixo mais comissão recebe 13º sobre os dois valores?", a: "Sim, em regra, as parcelas salariais que compõem a remuneração (fixo + médias) devem ser consideradas conforme sua natureza e as regras aplicáveis." },
-            { q: "O salário usado no cálculo é o salário atual ou uma média do ano?", a: "Para o salário fixo, utiliza-se a remuneração devida no momento do pagamento (geralmente dezembro). Já parcelas variáveis (comissões, horas extras) exigem o cálculo por média do ano." },
-            { q: "Se meu salário aumentou durante o ano, o aumento influencia o 13º?", a: "Sim. Um reajuste ou aumento salarial altera o valor utilizado no cálculo do 13º, especialmente para quem possui salário fixo." },
-            { q: "Quem está de férias tem direito ao 13º?", a: "Sim. O período de férias não elimina o direito ao 13º salário. Inclusive, o trabalhador pode solicitar a antecipação da primeira parcela junto com as férias." },
-            { q: "Posso receber a primeira parcela do 13º junto com as férias?", a: "Sim, desde que seja feita a solicitação dentro das condições estabelecidas pela legislação (normalmente requisitado em janeiro do respectivo ano)." },
-            { q: "Quem está afastado pelo INSS recebe 13º?", a: "Depende. Em determinadas situações, o empregador paga proporcional aos meses trabalhados, e a Previdência paga o abono anual referente ao período em benefício." },
-            { q: "Quem foi demitido recebe 13º proporcional?", a: "Em caso de dispensa sem justa causa, o trabalhador tem direito ao 13º proporcional correspondente aos meses trabalhados no ano da rescisão." },
-            { q: "Quem pediu demissão recebe 13º proporcional?", a: "Sim. Em regra, quem pede demissão também tem direito ao 13º proporcional referente ao período trabalhado no ano." },
-            { q: "Quem foi demitido por justa causa recebe 13º proporcional?", a: "Não. Na dispensa por justa causa, o trabalhador perde o direito ao 13º proporcional do ano da rescisão." },
-            { q: "O aviso-prévio influencia o cálculo do 13º?", a: "Pode influenciar. Quando o aviso-prévio, inclusive o indenizado, projeta o contrato para outro mês, isso pode gerar direito a mais 1/12 de 13º." },
-            { q: "O 13º pode ser pago em parcela única?", a: "A legislação exige pagamento em 2 parcelas (adiantamento e complemento). O pagamento em parcela única integralmente em novembro pode ser feito, mas exige cuidado contábil. Recomenda-se consultar o RH." },
-            { q: "A empresa pode pagar o 13º antes dos prazos?", a: "Sim. Os prazos legais (30/nov e 20/dez) são limites máximos. Antecipar valores é permitido e pode estar previsto em acordos coletivos." },
-            { q: "A empresa pode pagar a primeira parcela depois de 30 de novembro?", a: "Não como regra geral. O prazo legal máximo para o pagamento da primeira parcela é até 30 de novembro." },
-            { q: "A empresa pode pagar a segunda parcela depois de 20 de dezembro?", a: "Não como regra geral. A segunda parcela, já com os descontos, deve ser quitada obrigatoriamente até 20 de dezembro." },
-            { q: "O que acontece se a empresa não pagar o 13º dentro do prazo?", a: "O atraso pode gerar consequências trabalhistas, administrativas (multas por fiscais do trabalho) e infrações a convenções coletivas." },
-            { q: "Faltas no trabalho diminuem o 13º?", a: "Nem toda falta reduz. O ponto principal é: se devido a faltas injustificadas o trabalhador não somar 15 dias trabalhados naquele mês, ele perde 1/12 avos do 13º." },
-            { q: "O 13º é calculado sobre o salário bruto ou líquido?", a: "O cálculo do 13º sempre parte do salário bruto. Depois são aplicados os descontos de INSS e IRRF para se chegar ao valor líquido que cai na conta." },
-            { q: "Vale-transporte e vale-alimentação entram no cálculo do 13º?", a: "Não. A inclusão depende da natureza jurídica, e esses benefícios (se pagos conforme lei) não possuem natureza salarial." },
-            { q: "Benefícios e adicionais entram no 13º?", a: "Depende da natureza. Adicionais noturno, insalubridade e periculosidade integram o cálculo. Benefícios indenizatórios não integram." },
-            { q: "O 13º tem desconto de pensão alimentícia?", a: "Pode ter. Quando existe determinação judicial, o desconto recai sobre o 13º salário, assim como ocorre no salário mensal." },
-            { q: "Quem trabalha como comissionista tem direito ao 13º?", a: "Sim. Trabalhadores que recebem remuneração variável também têm direito, fazendo-se o cálculo da média recebida no ano." },
-            { q: "A convenção coletiva pode mudar o cálculo do 13º?", a: "Pode estabelecer condições mais benéficas, como formas próprias de apurar médias. Sempre vale a pena checar a convenção da categoria." },
-            { q: "O 13º salário conta para férias?", a: "Não. O 13º é uma verba distinta e não é incorporado ao cálculo das férias. Cada um tem sua própria base de apuração." },
-            { q: "O 13º entra no cálculo do FGTS?", a: "Sim. O 13º sofre incidência de FGTS (em regra, 8%), cujo valor é depositado separadamente pelo patrão na conta vinculada do trabalhador." },
-            { q: "Quem trabalha apenas parte do ano perde o direito ao 13º?", a: "Não. Recebe de forma proporcional (em avos) relativos aos meses que tiverem ao menos 15 dias trabalhados no ano." },
-            { q: "Se eu entrei no final do mês, esse mês conta?", a: "Somente se você trabalhar 15 dias ou mais dentro desse mês de admissão." },
-            { q: "Como saber exatamente quanto vou receber de 13º?", a: "É preciso somar salário bruto e médias (se houver), aplicar a proporção de meses (X/12), e deduzir a tabela progressiva oficial de INSS e de IRRF daquele ano." }
+            { q: "A primeira parcela do 13º sempre corresponde exatamente à metade do salário?", a: "Em uma situação simples de salário fixo, a primeira parcela normalmente corresponde à metade do 13º devido. Entretanto, situações envolvendo salário variável, admissão durante o ano, afastamentos, alterações salariais ou outras parcelas podem modificar o cálculo." },
+            { q: "A segunda parcela é sempre igual à primeira?", a: "Não. A segunda parcela é o complemento do 13º devido e pode apresentar valor diferente porque nela são considerados os descontos legais aplicáveis." },
+            { q: "Por que a segunda parcela costuma ser menor?", a: "Porque podem ser aplicados descontos como INSS e Imposto de Renda, quando cabíveis, além de outros descontos legalmente permitidos. Por isso, não é correto simplesmente dividir o valor líquido do 13º em duas partes iguais." },
+            { q: "O INSS é descontado do 13º salário?", a: "Sim. O 13º salário está sujeito à contribuição previdenciária quando aplicável. O desconto previdenciário é considerado no cálculo do valor líquido do benefício." },
+            { q: "O Imposto de Renda é descontado do 13º?", a: "Pode ser. Quando o trabalhador estiver sujeito ao Imposto de Renda, o desconto correspondente será realizado conforme as regras aplicáveis ao 13º salário." },
+            { q: "O FGTS é descontado do 13º?", a: "Não. O FGTS não é um desconto feito do salário do trabalhador. O empregador realiza o depósito do FGTS correspondente ao 13º salário, quando aplicável." },
+            { q: "Horas extras entram no cálculo do 13º?", a: "Horas extras de natureza salarial e recebidas habitualmente podem influenciar o cálculo do 13º. Quando houver parcelas variáveis, é necessário observar a forma correta de apuração e as regras aplicáveis ao trabalhador." },
+            { q: "Adicional noturno entra no cálculo do 13º?", a: "Quando o adicional noturno possui natureza salarial e é devido de forma habitual, ele pode integrar a remuneração considerada para o cálculo do 13º. A forma de cálculo pode depender das características da remuneração e das normas coletivas aplicáveis." },
+            { q: "Comissões entram no cálculo do 13º?", a: "Sim. Para trabalhadores que recebem comissões ou outras parcelas variáveis de natureza salarial, essas verbas podem ser consideradas no cálculo do 13º. A forma de apuração da média pode variar conforme a legislação e, em determinadas situações, conforme a convenção ou acordo coletivo da categoria." },
+            { q: "Quem recebe salário fixo mais comissão recebe 13º sobre os dois valores?", a: "Em regra, as parcelas salariais que compõem a remuneração devem ser consideradas conforme sua natureza e as regras de cálculo aplicáveis. Para remunerações variáveis, normalmente é necessário calcular a média das parcelas correspondentes." },
+            { q: "O salário usado no cálculo é o salário atual ou uma média do ano?", a: "Para o salário fixo, o cálculo segue a remuneração devida conforme as regras aplicáveis ao momento do pagamento. Já parcelas variáveis, como comissões e determinadas verbas habituais, podem exigir cálculo por média." },
+            { q: "Se meu salário aumentou durante o ano, o aumento influencia o 13º?", a: "Sim. Um reajuste ou aumento salarial pode alterar o valor utilizado no cálculo do 13º, especialmente quando o trabalhador possui salário fixo." },
+            { q: "Quem está de férias tem direito ao 13º?", a: "Sim. O período de férias não elimina o direito ao 13º salário. Além disso, o trabalhador pode ter direito à antecipação da primeira parcela junto às férias, desde que sejam observados os requisitos legais para essa antecipação." },
+            { q: "Posso receber a primeira parcela do 13º junto com as férias?", a: "Sim, desde que seja feita a solicitação dentro das condições estabelecidas pela legislação. Além disso, convenções e acordos coletivos podem estabelecer regras específicas sobre a antecipação." },
+            { q: "Quem está afastado pelo INSS recebe 13º?", a: "Depende do tipo de afastamento e do período em que ele ocorreu. Em determinadas situações, o empregador paga a parcela correspondente ao período trabalhado e a Previdência Social paga o abono anual referente ao período em que o trabalhador recebeu benefício previdenciário. Também podem existir regras específicas previstas em acordos ou convenções coletivas." },
+            { q: "Quem foi demitido recebe 13º proporcional?", a: "Em caso de dispensa sem justa causa, o trabalhador tem direito ao 13º proporcional correspondente aos meses considerados no ano da rescisão. O valor é calculado conforme as regras aplicáveis à rescisão." },
+            { q: "Quem pediu demissão recebe 13º proporcional?", a: "Sim. Em regra, quem pede demissão também tem direito ao 13º proporcional referente ao período trabalhado." },
+            { q: "Quem foi demitido por justa causa recebe 13º proporcional?", a: "Não. Na dispensa por justa causa, o trabalhador perde o direito ao 13º proporcional relativo ao período da rescisão, observados os demais direitos já adquiridos." },
+            { q: "O aviso-prévio influencia o cálculo do 13º?", a: "Pode influenciar. Quando o aviso-prévio, inclusive o indenizado, projeta o contrato para outro mês e esse período gera direito a mais um avo, isso pode alterar o cálculo do 13º proporcional na rescisão." },
+            { q: "O 13º pode ser pago em parcela única?", a: "A legislação estabelece o pagamento até os prazos previstos para as parcelas. Existem situações em que o empregador pode realizar o pagamento integral antecipadamente, desde que sejam respeitadas as regras legais aplicáveis. Além disso, normas coletivas podem estabelecer condições específicas para a categoria." },
+            { q: "A empresa pode pagar o 13º antes dos prazos?", a: "Sim. Os prazos legais são limites para pagamento, não impedindo necessariamente que o empregador antecipe os valores. Convenções e acordos coletivos também podem estabelecer datas mais favoráveis ao trabalhador." },
+            { q: "A empresa pode pagar a primeira parcela depois de 30 de novembro?", a: "Não como regra geral. O prazo legal para pagamento da primeira parcela é até 30 de novembro. Uma norma coletiva pode estabelecer condições diferentes, desde que respeitados os limites legais aplicáveis." },
+            { q: "A empresa pode pagar a segunda parcela depois de 20 de dezembro?", a: "Não como regra geral. A segunda parcela deve ser quitada até 20 de dezembro, salvo situações específicas previstas em legislação ou decisões aplicáveis ao caso." },
+            { q: "O que acontece se a empresa não pagar o 13º dentro do prazo?", a: "O atraso pode gerar consequências trabalhistas e administrativas para o empregador, incluindo a aplicação das penalidades previstas na legislação e, conforme o caso, em normas coletivas." },
+            { q: "Faltas no trabalho diminuem o 13º?", a: "Nem toda falta reduz o 13º. O ponto principal é verificar se o trabalhador permaneceu com pelo menos 15 dias considerados como trabalhados no mês. Quando esse requisito não é alcançado por motivo que não gere contagem do mês para o 13º, aquele mês pode deixar de representar um avo." },
+            { q: "O 13º é calculado sobre o salário bruto ou líquido?", a: "O cálculo do 13º parte da remuneração devida, antes dos descontos. Depois são aplicados os descontos correspondentes, quando cabíveis, chegando-se ao valor líquido que o trabalhador receberá." },
+            { q: "Vale-transporte e vale-alimentação entram no cálculo do 13º?", a: "Não se deve considerar automaticamente todo benefício recebido pelo trabalhador como parte do salário. A inclusão ou não de determinada verba depende de sua natureza jurídica e das regras aplicáveis ao benefício." },
+            { q: "Benefícios e adicionais entram no 13º?", a: "Depende da natureza da verba e da forma como ela é paga. Parcelas de natureza salarial e determinadas verbas habituais podem integrar a remuneração utilizada no cálculo, enquanto verbas de natureza indenizatória ou benefícios que não possuem natureza salarial podem não integrar." },
+            { q: "O 13º tem desconto de pensão alimentícia?", a: "Pode ter. Quando existe determinação judicial ou outro título válido que estabeleça a incidência sobre o 13º, o desconto pode ser realizado conforme os termos determinados." },
+            { q: "Quem trabalha como comissionista tem direito ao 13º?", a: "Sim. O trabalhador que recebe comissão também tem direito ao 13º, observando-se a forma de cálculo aplicável às parcelas variáveis." },
+            { q: "A convenção coletiva pode mudar o cálculo do 13º?", a: "Pode estabelecer condições específicas e mais detalhadas para determinadas categorias, especialmente quanto à forma de apuração de médias, antecipação e outras condições. Por isso, em situações envolvendo remuneração variável ou regras específicas da categoria, é importante verificar a convenção ou acordo coletivo aplicável." },
+            { q: "O 13º salário conta para férias?", a: "O 13º é uma verba distinta das férias e não deve simplesmente ser incorporado ao cálculo das férias como se fosse salário mensal. Cada verba possui suas próprias regras de cálculo." },
+            { q: "O 13º entra no cálculo do FGTS?", a: "Sim. O 13º possui incidência de FGTS, sendo responsabilidade do empregador realizar o depósito correspondente, quando aplicável." },
+            { q: "Quem trabalha apenas parte do ano perde o direito ao 13º?", a: "Não. O trabalhador recebe o 13º proporcional aos meses que forem considerados para o cálculo." },
+            { q: "Se eu entrei no final do mês, esse mês conta?", a: "Somente se forem alcançados os requisitos para que o mês seja considerado no cálculo. Em regra, é necessário ter 15 dias ou mais de trabalho no mês." },
+            { q: "Como saber exatamente quanto vou receber de 13º?", a: "É necessário considerar: salário/remuneração + quantidade de meses considerados + parcelas variáveis, quando aplicáveis − descontos legais = valor líquido do 13º. Por isso, duas pessoas com o mesmo salário podem receber valores diferentes de 13º quando possuem períodos trabalhados, comissões, horas extras, adicionais ou descontos diferentes." }
         ];
 
         const FAQ = {
@@ -810,18 +807,32 @@
                 }
             },
             
+            // Remove acentos e converte para minúsculas
             removeAccents(str) {
                 return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
             },
             
             bindEvents() {
                 this.searchInput.addEventListener('input', (e) => {
-                    const query = this.removeAccents(e.target.value);
+                    const query = this.removeAccents(e.target.value.trim());
+                    
+                    if (query === '') {
+                        this.render(faqData);
+                        return;
+                    }
+
+                    // Divide a pesquisa em palavras individuais (tokens) ignorando espaços duplos
+                    const searchTerms = query.split(/\s+/).filter(word => word.length > 0);
+
                     const filtered = faqData.filter(item => {
-                        const qStr = this.removeAccents(item.q);
-                        const aStr = this.removeAccents(item.a);
-                        return qStr.includes(query) || aStr.includes(query);
+                        // Junta a pergunta e a resposta num texto só para procurar
+                        const combinedText = this.removeAccents(item.q + " " + item.a);
+                        
+                        // LÓGICA INTELIGENTE: Verifica se TODAS as palavras digitadas existem
+                        // em qualquer lugar do texto, independentemente da ordem.
+                        return searchTerms.every(term => combinedText.includes(term));
                     });
+                    
                     this.render(filtered);
                 });
             }
@@ -830,7 +841,7 @@
         document.addEventListener('DOMContentLoaded', () => { 
             UI.init(); 
             ModalMedias.init();
-            FAQ.init(); // Inicia a aba de perguntas e respostas
+            FAQ.init();
         });
     </script>
 </body>
